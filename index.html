@@ -3,8 +3,35 @@
 <head>
 <style>
 
+#fixedheight {
+    table-layout: fixed;
+}
+
+#fixedheight td {
+    width: 60%;
+}
+
+#fixedheight td div {
+    height: 20px;
+    overflow: hidden;
+}
+.table{
+ background-color:gray;
+}
+.table-size, td{
+  overflow-x:auto;
+}
+th{
+  height: 50px;
+  background-color: #966fd6;
+  color:honeydew;
+  font-size: larger;
+}
+
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid #966fd6;
+  padding: 10px;
+  
 }
 table.center {
   margin-left: auto;
@@ -21,7 +48,8 @@ h2, p{
 <p>Group no: D</p>
 <p>Roll no : 14</p>
 
-<table class = "center" style="width:50%">
+<div class="table-size">
+<table id="fixedheight" class = "center" style="width:50%">
   <tr>
     <th>Title</th>
     <th>Code</th> 
@@ -29,10 +57,15 @@ h2, p{
   </tr>
   <tr>
     <td>GitHub Pages Deployment</td>
-    <td><a href="https://github.com/akriticodes/akriti.github.io">Git Pages Deployment Code</a></td>
+    <td><a href="https://github.com/akriticodes/assignment/tree/master/assignment1">Git Pages Deployment Code</a></td>
     <td><a href="https://akriticodes.github.io/assignment/assignment1/index.html">Git Pages Deployment Demo</a></td>
   </tr>
-  
+  <tr>
+    <td>Design Assignment 1 A-home-search.jpg</td>
+    <td><a href="#">Design Assignment 1 A-home-search.jpg-CODE</a></td>
+    <td><a href="#">Design Assignment-DEMO</a></td>
+  </tr>
+</div>
 </table>
 
 </body>
