@@ -1,6 +1,4 @@
 
-
-
 .main-col-centre{
   max-width: 389px;
 	margin:0 auto;
@@ -46,7 +44,7 @@
   max-width: 960px;
   background: #727272;
 }
-/*header top ra header bottom mileko chaina*/
+
 /*menu*/
 /*header*/
 .logo{
@@ -117,23 +115,18 @@ ul{
 	color: #3e3e3e;
 	font-size: 13px;
 }
-.tab-content ul li{
-  background: url("../images/background-transparant.png");
-  display: inline;
-  padding-left: px;
-	line-height: 28px;
-	margin: 0 5px;
-	width: 114px;
-  text-align: center;
-	height: 28px;
-}
+
 
 .tab-content ul li a{
+  display: inline;
   text-decoration: none;
 	font-size: 12px;
 	color: #323232;
   display: block;
-  background: url("../images/background-transparant.png");
+  /*background: url("../images/background-transparant.png");*/
+}
+.tab-content left ul li{
+  display: inline;
 }
 /*
 .tab-left ul li:hover{
@@ -141,10 +134,20 @@ ul{
 
 }
 */
+.profile-bottom ul{
+  display : box;
+}
 
 .profile-bottom ul li{
   padding: 15px 0px;
   border-bottom: 1px solid #d8d8d8 ;
+  width: 500px;
+}
+.from{
+  padding: 0 8px;
+  font-size:11px;
+  color:#616161;
+  border-left: 1px solid #888888;
 }
 
 .profile-title a{
@@ -174,9 +177,14 @@ ul{
 }
 .new-alert-warning a{
   color:#d54020;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0 6px;
 }
 .new-alert a{
   color:#309db1;
+  font-size: 11px;
+  font-weight: bold;
 }
 .new-alert{
 	padding: 0 10px;
@@ -269,7 +277,5 @@ ul{
 	clear: both;
 }
 
-.clr{
-	zoom: 1; 
-}
+
 
