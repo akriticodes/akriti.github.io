@@ -1,13 +1,15 @@
-/*.wrapper{
+/*
+.wrapper{
   background: #ffffff;
   margin-right: auto;
   margin-left: auto;
 
-  max-width: 960px;
+  max-width: 970px;
 
   padding-right: 10px;
   padding-left: 10px;
-}*/
+  */
+
 .header-wrapper-top{
   background: #7dd9e8;
   padding: 20px 0px 15px;
@@ -44,6 +46,7 @@
 }
 .menu-left{
   float:left;
+  margin-left:20px;
 }
 .menu-right{
   float: right;
