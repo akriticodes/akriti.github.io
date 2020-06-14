@@ -1,0 +1,275 @@
+
+
+
+.main-col-centre{
+  max-width: 389px;
+	margin:0 auto;
+	margin-top: 26px;
+  margin-bottom: 26px;
+  background-size: 100%; 
+}
+
+
+.main{
+  float:left;
+  width: 78%
+}
+
+.left-section{
+  float: left;
+  width: 26%;
+}
+.middle-section{
+  float: right;
+  background:#ffffff;
+  width: 70%;
+  height: 70%
+}
+.right-section{
+  float: right;
+  width : 18%;
+
+}
+.footer-wrapper{
+  background: #727272;
+  clear: both;
+  position: relative;
+  width: 960px;
+  margin: 56px;
+}
+.footer-wrapper ul li{
+  display: inline;
+}
+
+.footer-wrp-center{
+  margin-top:-200px;
+  max-width: 960px;
+  background: #727272;
+}
+/*header top ra header bottom mileko chaina*/
+/*menu*/
+/*header*/
+.logo{
+  max-width: 100%;
+  max-height: 100%;
+  display:block;
+}
+.search-btn input{
+	background: url("../images/search-btn.png");
+	border: none;
+	outline: none;
+	height: 20px;
+	width: 53px;
+	font-size: 9px;
+	color: #f3f5f2;
+	padding: 0;	
+}
+
+/*style for profile menu*/
+.profile-name a{
+  float : right;
+  padding-top : 8px;
+  padding-bottom: 12px;
+  color: #333230;
+  font-size: 16px;
+}
+.profile-menu ul{
+  clear:both;
+}
+
+.profile-menu ul li{
+  float:left;
+}
+.profile-menu ul li a{
+  float: right
+}
+ul{
+  list-style-type: none;
+}
+/*header bottom*/
+.menu{
+  text-decoration: none;
+  line-height : 40px;
+  columns: #3c3c3c;
+  display:block;
+  padding:0 8px;
+  font-size: 14px;
+}
+/*entry list style here*/
+.title-name{
+  color: #373737;
+	font-size: 30px;
+	margin-bottom: 12px; 
+}
+.tab{
+  background: url("../images/left-curve.png");
+	width: 100%;
+	height: 65px;
+	border-bottom: 2px solid #2fc1da;
+}
+.tab-content{
+  padding: 0 5px;
+}
+.tab-content span{
+  display: block;
+	text-align: center;
+	padding: 12px 0;
+	color: #3e3e3e;
+	font-size: 13px;
+}
+.tab-content ul li{
+  background: url("../images/background-transparant.png");
+  display: inline;
+  padding-left: px;
+	line-height: 28px;
+	margin: 0 5px;
+	width: 114px;
+  text-align: center;
+	height: 28px;
+}
+
+.tab-content ul li a{
+  text-decoration: none;
+	font-size: 12px;
+	color: #323232;
+  display: block;
+  background: url("../images/background-transparant.png");
+}
+/*
+.tab-left ul li:hover{
+  background: url("../images/background-blue.png");
+
+}
+*/
+
+.profile-bottom ul li{
+  padding: 15px 0px;
+  border-bottom: 1px solid #d8d8d8 ;
+}
+
+.profile-title a{
+  padding-left: 10px;
+  color:#2f2f2f;	
+  font-size: 14px;
+  font-weight: bold;
+}
+.profile-by{
+  padding-right: 6px;
+  font-size:11px;
+  padding-left: 10px;
+  color: #616161;
+}
+.member-date{
+  padding: 0 6px;
+  font-size:11px;
+  color:#616161;
+  border-left: 1px solid #888888;
+}
+.Subscribed{
+	padding: 0 6px;
+	border-left: 1px solid #888888;
+	color: #70961d;
+	font-size: 11px;
+  font-weight: bold;
+}
+.new-alert-warning a{
+  color:#d54020;
+}
+.new-alert a{
+  color:#309db1;
+}
+.new-alert{
+	padding: 0 10px;
+	font-size: 10px;
+	font-weight: bold;
+	color: #309db1	;	
+}
+.clear{
+  float: right;
+}
+.left{
+  float: left;
+}
+.profile-bottom ul li{
+  float:left;
+  text-align: centre;
+  margin: 0 5px;
+  max-width: 500px;
+}
+.profile-title ul li a{
+  text-decoration:none;
+  font-size: 12px;
+  color:#323232;
+  display:block;
+}
+.top-title{
+  line-height: 42px;
+  padding-left: 12px;
+  font-size: 16px;
+  background:#2fc1da;
+  color: #fffefc;
+}
+.column-content{
+  background:#f5f5f5;
+  padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.column-content ul li{
+  padding-top: 8px;
+	padding-left: 12px;
+	padding-bottom: 8px;
+	line-height: 16px;
+	font-size: 11px;
+	position: relative;
+	font-weight: bold;
+}
+.column-content ul li a{
+	text-decoration: none;
+	color: #292929;
+	display: block;
+}
+
+.column-content ul li:hover{
+  background: #ffffff;
+}
+  
+.right-icon{
+  position: absolute;
+	right: 14px;
+	bottom: 27%; 
+}
+
+/*footer style here*/
+.footer-left{
+  float:left;
+}
+
+.footer-left ul li{
+  font-size: 9px;
+  line-height: 45px;
+  padding:10px;
+  padding-right:8px;
+
+}
+
+.footer-right{
+  float: right;
+  font-size: 9px;
+  padding: 0 6px;
+}
+/*clearfix*/
+
+.clr:before, .clr:after{
+	content: "";
+	display: table;
+}
+
+.clr:after{
+	clear: both;
+}
+
+.clr{
+	zoom: 1; 
+}
+
