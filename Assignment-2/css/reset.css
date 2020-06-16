@@ -1,0 +1,22 @@
+*{
+  margin: 0px;
+  padding:0px;
+}
+
+.clearfix:after{
+  clear: both;
+  content:"";
+  display: table;
+  
+}
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+.center{
+  margin: 0 auto;
+}
