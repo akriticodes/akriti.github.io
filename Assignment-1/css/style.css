@@ -31,7 +31,7 @@
   
 }
 .top-container{
-  width : 890px;
+  
   height : 50px;
 }
 .top-container-left{
@@ -82,6 +82,10 @@
 
 .top-container-right{
   float: right;
+}
+
+.below-container-right{
+  margin-right :10px;
 }
 
 
@@ -204,6 +208,8 @@
 /*right*/
 .middle-right{
 float:right;
+width: 2in;
+padding-left: 1in;
 /*background-color: indigo;*/
 }
 
