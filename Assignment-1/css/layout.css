@@ -1,5 +1,5 @@
 .head-top-wrapper{
-  width : 100%;
+  width : 1002px;
   height:85px;
   background-color:#76d8ec;
 }
@@ -17,14 +17,15 @@
 
 /*Middle-section*/
 .middle{
-  margin: 0px 33px;
-  padding: 30px 33px;
+  margin-top: 30px;
+  width:936px;
 }
 .middle-left{
   float: left;
   
  }
  .middle-left-container{
+   width: 194px;
    float:left;
  }
 
@@ -39,3 +40,28 @@
  .below-container-right{
   float: right;
 }
+.body{
+  min-width: 1024px;
+}
+
+/*
+@media screen and (min-width:800px){
+
+  .head-top-wrapper{
+    width : 80%;
+    height:85px;
+    background-color:#76d8ec;
+  }
+  
+  .head-bottom-wrapper{
+    background-color:#f5f5f5;
+    height:42px;
+  }
+  .footer{
+    height: 45px;
+    width: 100%;
+    background-color: #727272;
+    clear: both;
+  } 
+}
+*/
