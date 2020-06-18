@@ -1,0 +1,155 @@
+*{
+    margin:0;
+    padding:0;
+}
+.wrapper{
+    width:100%
+}
+ul li {
+    list-style-type: none;
+}
+ul li a{
+    text-decoration: none;
+}
+
+.menu-list ul li {
+    display:inline-block;
+    padding:10px 10px;
+
+}
+
+.navigation-container-top{
+    height:60px;
+    padding:20px 50px;
+    background-color:#ade1c5;
+
+}
+/*left-side*/
+.icon-left{
+    float:left;
+    
+}
+
+
+/*right-side*/
+.icon-right{
+    float:right;   
+}
+    
+.header-icon{
+    padding: 10px;
+}
+.logo-icon{
+    width:100px;
+    margin:0 auto;
+}
+.shopx-logo{
+    padding-top:5px;
+    width: 100px;
+    margin:0 auto;
+}
+
+.navigation-container-top a{
+    display:inline-block;
+}
+
+.navigation-container-top div{
+    display:inline-block;
+} 
+.navigation-container-top div.logo-icon{
+    display:block;
+} 
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.menu-list{
+    margin: 0px 10px ;
+    text-align: center;
+}
+.new-arrivals-wrapper{
+    height:70px;
+    padding: 0px 60px;
+    background-color:#ade1c5;
+}
+.new-arrivals-container{
+    margin-left:60px;
+}
+.new{
+    font-size: 20px;
+    font-family: 'Alex Brush', cursive;
+}
+.shop-now{
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+.sky-panter{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 40px;
+}
+.arrival{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 10px;
+}
+.dollar{
+    font-size:5px;
+    margin-top: -10px;
+}
+.second-text ul li{
+    display:inline-block ;
+}
+.dollar-container{
+    padding-bottom: 10px;
+}
+/*tablet*/
+
+@media only screen and (min-width: 768px) {
+.navigation-container-bottom{
+    width:100%
+}
+.navigation-container-top{
+    height:50px; 
+}
+.icon-left{
+    display:none;
+}
+
+.header-icon{
+    padding: 10px 20px;
+
+}
+.shopx-logo{
+    padding-top:5px;
+    width: 110px;
+
+
+}
+.menu-list ul li {
+    display:inline-block;
+    padding:20px 20px;
+
+}
+.desktop-view{
+}
+
+}
+
+/*
+.navigation-container-top div.logo-icon{
+    float:left;
+    padding-left: 50px;
+} */
+@media only screen and (min-width: 1020px) {
+.navigation-container-top{
+    padding:20px 50px;
+    background-color: white;
+}
+.new-arrivals-wrapper{
+    height:200px;
+    padding: 0px 60px;
+    background-color:#ade1c5;
+}
+}
+

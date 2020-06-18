@@ -1,0 +1,55 @@
+*{
+  margin: 0px;
+  padding:0px;
+}
+.wrapper{
+  /*background-color: blueviolet;*/
+  width:
+  
+}
+.clearfix:after{
+  clear: both;
+  content:"";
+  display: table;
+  
+}
+
+.navigation{
+  background-color: cyan;
+  height:10.27%;
+}
+.navigation-container{
+  height:31.06%;
+  margin: 0 32px 32px 32px;
+  padding:32px;
+  background-color: red;
+}
+
+.navigation-container-left{
+  float: left;
+  background-color: darkkhaki;
+}
+
+.navigation-container-right{
+  float:right;
+  background-color:darkkhaki;
+}
+
+.search{
+  float:left;
+}
+
+.ham-menu{
+  float:right;
+  width:10px;
+  height:10px;
+}
+
+.profile-pic{
+  float:right;
+}
+
+.logo{
+  float:left;
+  width:10px;
+}

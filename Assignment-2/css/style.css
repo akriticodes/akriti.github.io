@@ -114,10 +114,12 @@
   width: 100%;
   height:27px;
 }
+
 .left_header{
   float: left;
   padding-left: 99px;
 }
+
 .right_header{
   float: right;
   padding-right: 97px;
@@ -210,7 +212,6 @@
 float:right;
 width: 176px;
 
-/*background-color: indigo;*/
 }
 
 /*Peek into column*/
@@ -279,7 +280,7 @@ width: 176px;
   display:none;
 }
 
-@media screen and (max-width:769px){
+@media screen and (min-width:768px){
 
   .head-top-wrapper{
     width : 100%;
@@ -295,6 +296,7 @@ width: 176px;
   .middle-left{
     width:70.11%;
     float:left; 
+    padding: 0 200px;
 
   }
 
@@ -494,8 +496,10 @@ width: 176px;
 }
 }
 /*mobile*/
-@media screen and (max-width:480px){
-
+@media screen and (min-width:768px){
+.wrapper{
+  width: 480px;
+}
 *{
   margin: 0px;
   padding:0px;
@@ -509,9 +513,11 @@ width: 176px;
   background-color:#76d8ec;
 }
 
-.logodiv{
+.logodiv {
   float: left;
   padding: 20px 20px;
+  margin-top: 10px;
+  padding-left:70px
 }
 .hamburger{
   float:right;

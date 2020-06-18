@@ -40,32 +40,19 @@
  .below-container-right{
   float: right;
 }
-.body{
-  min-width: 1024px;
-}
 
+@media only screen and (min-width: 768px){
+  .wrapper{
+    width:938;
+  }
+  .head-top-wrapper {
+    width :938px;   
+    padding: 0 32px;
+  }
 
+  .middle{
+    width :938px;   
+    padding: 0 32px;
+  }
 /*tablet*
 
-@media screen and (min-width:768px){
-
-  .middle-left{
-    width:70.11%;
-    float:left; 
-
-  }
-
-  .middle-right{
-    float:right;
-    width:30.99%
-  }
-  .middle-left-container{
-    display:none;
-  }
-
-}
-
-@media screen and (min-width:768px){
-  
-}
-*/
