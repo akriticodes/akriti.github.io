@@ -1,0 +1,35 @@
+.footer-wrapper{
+  width:100%;
+  background-color: black;
+}
+.footer-container{
+  padding: 40px 0px;
+  margin: 0px 110px;
+}
+.services{
+  height:130px;
+  width:170px;
+}
+.footer-container ul li{
+  display: inline-block;
+  padding-left:70px;
+}
+.service-title{
+  text-align: center;
+  color:white;
+  padding-bottom: 10px;
+  font-size:18px;
+  font-family: 'Titillium Web', sans-serif;
+}
+.image{
+  text-align:center;
+  padding-bottom: 20px;
+}
+.sub-service-title{
+  text-align: center;
+  font-size:10px;
+  color:white;
+  opacity:0.3px;
+  font-family: 'Roboto', sans-serif;
+  
+}
