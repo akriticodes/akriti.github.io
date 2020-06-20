@@ -7,9 +7,11 @@
     <title>Shopx</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/logo.css">
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -19,6 +21,9 @@
                 <div class="icon-left">
                     <div class = "search-icon">
                         <a href="#"><img src ="images/searcht.png" class="header-icon"></a>
+                    </div>
+                    <div class ="search-bar-top">
+                      <input type="text" placeholder="Search"  class="header-icon">
                     </div>
                     <div class="profile-icon">
                         <a a href="#"><img src = "/images/profilet.png" class="header-icon"></a>
@@ -44,12 +49,12 @@
             <div class = "navigation-container-bottom">
                 <div class="menu-list">
                     <ul>
-                        <a href="#"><li>Home</li></a>
-                        <a href="#"><li>Shop</li></a>
-                        <a href="#"><li>Element</li></a>
-                        <a href="#"><li>Pages</li></a>
-                        <a href="#"><li>Portfolio</li></a>
-                        <a href="#"><li>Blogs</li></a>
+                        <a href="#"><li class="menu-top">HOME</li></a>
+                        <a href="#"><li class = "active">SHOP</li></a>
+                        <a href="#"><li class="menu-top">ELEMENT</li></a>
+                        <a href="#"><li class="menu-top">PAGES</li></a>
+                        <a href="#"><li class="menu-top">PORTFOLIO</li></a>
+                        <a href="#"><li class="menu-top">BLOGS</li></a>
                     </ul>
                 </div>
             </div>
@@ -75,44 +80,47 @@
                 </div> 
                 <div>
             </div>
-            <div class ="slider">
-                <ul>
-                    <li class="number-one" >01</li>
-                    <li class="current">02</li>
-                    <li class="number-three">03</li>
-                </ul>
-            </div>
+            
         </div>
+        <div class ="slider">
+          <ul>
+              <li class="number-one" >01</li>
+              <li class="current">02</li>
+              <li class="number-three">03</li>
+          </ul>
+      </div>
         
     </div>
+    <div class ="second-menu-wrapper">
+      <div class ="second-menu-container clearfix">
+          <div class ="second-menu-container-left">
+              <ul>
+                  <li><a href="#"><img src = "images/second-menu.png"  class="menu-second"></a></li>
+                  <a href="#"><li class ="active">ALL</li></a>
+                  <a href="#"><li class="menu-top">HOME</li></a>
+                  <a href="#"><li class="menu-top">LEARNING</li></a>
+                  <a href="#"><li class="menu-top">PRICE</li></a>
+                  <a href="#"><li class="menu-top">UTDDOR</li></a>
+              </ul>                    
+          </div>
+          <div class="second-menu-container-right">
+              <div class = "search-icon">
+                  <a href="#"><img src = "images/second-search.png"  class="search-second"></a>
+              </div>
+              <div class ="search-bar">
+                  <input type="text" placeholder="SEARCH">
+              </div>
+          </div>
+      </div>
+  </div>
+
 
    
 
 
 
 <div class="product-list-wrapper">
-    <div class ="second-menu-wrapper">
-        <div class ="second-menu-container clearfix">
-            <div class ="second-menu-container-left">
-                <ul>
-                    <li><a href="#"><img src = "images/second-menu.png"  class="menu-second"></a></li>
-                    <a href="#"><li>ALL</li></a>
-                    <a href="#"><li>HOME</li></a>
-                    <a href="#"><li>LEARNING</li></a>
-                    <a href="#"><li>PRICE</li></a>
-                    <a href="#"><li>UTDDOR</li></a>
-                </ul>                    
-            </div>
-            <div class="second-menu-container-right">
-                <div class = "search-icon">
-                    <a href="#"><img src = "images/search.png"  class="search-second"></a>
-                </div>
-                <div class ="search-bar">
-                    <input type="text" placeholder="Search">
-                </div>
-            </div>
-        </div>
-    </div>
+    
 <ul class="product-list clearfix">
     <li>
         <div class ="shopping-container clearfix">
@@ -128,13 +136,13 @@
                   <div class ="icons">
                     <img src="images/compare.png">
                   </div> 
-                  <div class="circle"> <span class="new">NEW</span>
+                  <div class="green-circle"> <span class="new-down">NEW</span>
                   </div>  
                 </div>
               </div>
               <div class ="shopping-container-right">
                 <div class="right-box">
-                  <div class="pink-box">
+                  <div class="green-box">
                   </div>
                 </div>
               </div>
@@ -146,8 +154,8 @@
                     Lava Vtase
                   </span>
                     <ul class="price">
-                      <li> $ 65.00</li>
-                      <li>$35.00</li>
+                      <li><strike>$ 65.00</strike></li>
+                      <li class="non-strike">$35.00</li>
                     </ul>
                 </div>
               </div>
@@ -177,7 +185,7 @@
                   <div class ="icons">
                     <img src="images/compare.png">
                   </div> 
-                  <div class="circle"> <span class="new">NEW</span>
+                  <div class="green-circle"> <span class="new-down">NEW</span>
                   </div>  
                 </div>
               </div>
@@ -192,11 +200,108 @@
               <div class="name-price">
                 <div class="title">
                   <span class="title-name">
-                    Lava Vtase
+                    Ceramic Pot
                   </span>
                     <ul class="price">
-                      <li> $ 65.00</li>
-                      <li>$35.00</li>
+                      <li><strike> $ 78.00</strike></li>
+                      <li  class="non-strike">$45.00</li>
+                    </ul>
+                </div>
+              </div>
+              <div class="add-to-cart clearfix">
+                <div class ="cart-icon">
+                  <img src="images/cart.png">
+                </div>
+                <div class ="cart-text">
+                  <span>ADD TO CART</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </li>
+    <li>
+      <div class ="shopping-container clearfix">
+          <div class ="shopping-container-up">
+            <div class = "shopping-container-left">
+              <div class="left-icons">
+                <div class ="icons">
+                  <img src="images/nav.png">
+                </div>
+                <div class="icons">
+                  <img src="/images/Heart.png">
+                </div> 
+                <div class ="icons">
+                  <img src="images/compare.png">
+                </div> 
+                <div class="pink-circle"> <span class="new-down">NEW</span>
+                </div>  
+              </div>
+            </div>
+            <div class ="shopping-container-right">
+              <div class="right-box">
+                <div class="pink-box">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class ="shopping-container-down">
+            <div class="name-price">
+              <div class="title">
+                <span class="title-name">
+                  Dinner ware
+                </span>
+                  <ul class="price">
+                    <li><strike>$ 89.00</strike> </li>
+                    <li  class="non-strike">$56.00</li>
+                  </ul>
+              </div>
+            </div>
+            <div class="add-to-cart clearfix">
+              <div class ="cart-icon">
+                <img src="images/cart.png">
+              </div>
+              <div class ="cart-text">
+                <span>ADD TO CART</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </li>
+    <li>
+        <div class ="shopping-container clearfix">
+            <div class ="shopping-container-up">
+              <div class = "shopping-container-left">
+                <div class="left-icons">
+                  <div class ="icons">
+                    <img src="images/nav.png">
+                  </div>
+                  <div class="icons">
+                    <img src="/images/Heart.png">
+                  </div> 
+                  <div class ="icons">
+                    <img src="images/compare.png">
+                  </div> 
+                   
+                </div>
+              </div>
+              <div class ="shopping-container-right">
+                <div class="right-box">
+                  <div class="pink-box">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class ="shopping-container-down">
+              <div class="name-price">
+                <div class="title">
+                  <span class="title-name">
+                    Norm Jars
+                  </span>
+                    <ul class="price">
+                      <li><strike>$ 65.00</strike> </li>
+                      <li  class="non-strike">$35.00</li>
                     </ul>
                 </div>
               </div>
@@ -226,7 +331,7 @@
                   <div class ="icons">
                     <img src="images/compare.png">
                   </div> 
-                  <div class="circle"> <span class="new">NEW</span>
+                  <div class="pink-circle"> <span class="new-down">NEW</span>
                   </div>  
                 </div>
               </div>
@@ -241,11 +346,11 @@
               <div class="name-price">
                 <div class="title">
                   <span class="title-name">
-                    Lava Vtase
+                    Floating Boat
                   </span>
                     <ul class="price">
-                      <li> $ 65.00</li>
-                      <li>$35.00</li>
+                      <li><strike>$ 78.00</strike></li>
+                      <li  class="non-strike">$45.00</li>
                     </ul>
                 </div>
               </div>
@@ -275,7 +380,7 @@
                   <div class ="icons">
                     <img src="images/compare.png">
                   </div> 
-                  <div class="circle"> <span class="new">NEW</span>
+                  <div class="green-circle"> <span class="new-down">NEW</span>
                   </div>  
                 </div>
               </div>
@@ -290,108 +395,10 @@
               <div class="name-price">
                 <div class="title">
                   <span class="title-name">
-                    Lava Vtase
+                    Ceramic Pot
                   </span>
                     <ul class="price">
-                      <li> $ 65.00</li>
-                      <li>$35.00</li>
-                    </ul>
-                </div>
-              </div>
-              <div class="add-to-cart clearfix">
-                <div class ="cart-icon">
-                  <img src="images/cart.png">
-                </div>
-                <div class ="cart-text">
-                  <span>ADD TO CART</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-    </li>
-    <li>
-        <div class ="shopping-container clearfix">
-            <div class ="shopping-container-up">
-              <div class = "shopping-container-left">
-                <div class="left-icons">
-                  <div class ="icons">
-                    <img src="images/nav.png">
-                  </div>
-                  <div class="icons">
-                    <img src="/images/Heart.png">
-                  </div> 
-                  <div class ="icons">
-                    <img src="images/compare.png">
-                  </div> 
-                  <div class="circle"> <span class="new">NEW</span>
-                  </div>  
-                </div>
-              </div>
-              <div class ="shopping-container-right">
-                <div class="right-box">
-                  <div class="pink-box">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class ="shopping-container-down">
-              <div class="name-price">
-                <div class="title">
-                  <span class="title-name">
-                    Lava Vtase
-                  </span>
-                    <ul class="price">
-                      <li> $ 65.00</li>
-                      <li>$35.00</li>
-                    </ul>
-                </div>
-              </div>
-              <div class="add-to-cart clearfix">
-                <div class ="cart-icon">
-                  <img src="images/cart.png">
-                </div>
-                <div class ="cart-text">
-                  <span>ADD TO CART</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-    </li>
-    <li>
-        <div class ="shopping-container clearfix">
-            <div class ="shopping-container-up">
-              <div class = "shopping-container-left">
-                <div class="left-icons">
-                  <div class ="icons">
-                    <img src="images/nav.png">
-                  </div>
-                  <div class="icons">
-                    <img src="/images/Heart.png">
-                  </div> 
-                  <div class ="icons">
-                    <img src="images/compare.png">
-                  </div> 
-                  <div class="circle"> <span class="new">NEW</span>
-                  </div>  
-                </div>
-              </div>
-              <div class ="shopping-container-right">
-                <div class="right-box">
-                  <div class="pink-box">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class ="shopping-container-down">
-              <div class="name-price">
-                <div class="title">
-                  <span class="title-name">
-                    Lava Vtase
-                  </span>
-                    <ul class="price">
-                      <li> $ 65.00</li>
+                      <li><strike> $ 65.00</strike></li>
                       <li>$35.00</li>
                     </ul>
                 </div>
@@ -410,6 +417,43 @@
     </li>
     
 </ul>
+</div>
+
+
+<!--Below-Product-->
+<div class="below-product-wrapper">
+  <div class="below-product-container clearfix">
+    <div class="price-tag-container">
+      <div class="price-tag-circle">
+        <p class= "price-up"><strike>$65.00</strike></p>
+        <p class="price-down">$35.00</p>
+      </div>
+    </div>
+    <div class="featured-wood-container clearfix">
+      <div class="wood-sand">
+        <img src="images/wood-sand.png">
+      </div>
+      <div class="featured-box">
+        <div class="featured-title">
+          <p>Featured</p>
+        </div>
+        <div class="featured-content">
+          <p>
+            LASA VASE
+          </p>
+          <p class="topic">
+            Ceramic Planter With Wood Stand
+          </p>
+          <p class="content">
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+          </p>
+          <p class="link">
+            <a href="#">Shop Now</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
     
     

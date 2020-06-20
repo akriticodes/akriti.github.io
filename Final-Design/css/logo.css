@@ -1,0 +1,99 @@
+
+.below-product-wrapper{
+  height:950px;
+  background-color: thistle;
+  padding-top:1px;
+  max-width:1173px;
+}
+.below-product-container{
+  margin-left: 458px;
+  margin-top: 175px;
+  background-color: yellow;
+  height:770px;
+  width:1462px;
+  position:relative;
+}
+.price-tag-container{
+  width: 420px;
+  background-color:white;
+  float:right;
+
+}
+.price-tag-circle{
+  
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background:#e7a8c6;
+  position: absolute;
+  bottom:50px;
+  left:10px;
+
+}
+
+.price-down{
+  position:absolute;
+  color:white;
+  font-size:45px;
+  position: absolute;
+  left:70px;
+  bottom:100px;
+
+}
+.price-up{
+  font-size:16px;
+  position:absolute;
+  left:145px;
+  bottom:145px;
+}
+.featured-wood-container{
+  background-color:blue;
+  float:right;
+ /* width:1100px;*/
+  height:770px;
+}
+.wood-sand{
+  float:left;
+  padding-top:200px;
+}
+.featured-box{
+  width:958px;
+  background-color: violet;
+  float:right;
+}
+.featured-title{
+  height:134px;
+  background-color:red;
+  margin-top:67px;
+  margin-left:133px;
+}
+.featured-content{
+  padding-left:80px;
+  height:254px;
+  margin-top:100px;
+  width:435px;
+}
+.content{
+  height:160px;
+  width:478px;
+  background-color: orange;
+  padding: 45px 0px;
+}
+.name{
+  color:white;
+}
+.featured-content .name .content .link{
+  color:white;
+}
+.featured-title{
+  font-size: 168px;
+  opacity: 0.3;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+@media only screen and (min-width: 768px) {
+ 
+
+
+}
