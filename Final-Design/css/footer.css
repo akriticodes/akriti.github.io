@@ -33,8 +33,6 @@
 }
 
 .footer-down-container-up{
-  
-  padding-left:25px;
   width: 99%;
 }
 .useful-title{
@@ -57,9 +55,10 @@
 .useful-items {
   column-count:3;
 }
+/*
 .info{
   padding-right: 70px;
-}
+}*/
 .instagram-box{
   padding-top: 60px;
   text-align: center;
