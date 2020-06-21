@@ -139,7 +139,7 @@
     height:770px;
     /*width: 1033px;*/
     position:relative;
-    margin-left: 140px;
+    /* margin-left: 140px;*/
     width:100%;
   }
   .price-tag-container{
@@ -173,8 +173,11 @@
   .price-up{
     font-size:16px;
     position:absolute;
-    left:115px;
-    bottom:145px;
+    left:120px;
+    bottom:130px;
+  }
+  .price-up{
+    text-decoration: line-through;
   }
   .featured-wood-container{
     background-color:#8ed1b7;
