@@ -3,33 +3,127 @@
   background-color: black;
 }
 .footer-container{
-  padding: 40px 0px;
-  margin: 0px 110px;
+  padding: 20px 0px;
 }
 .services{
-  height:130px;
-  width:170px;
+  height:50px;
+  width:80px;
+  padding-left: 20px;
 }
 .footer-container ul li{
   display: inline-block;
-  padding-left:70px;
 }
 .service-title{
   text-align: center;
   color:white;
   padding-bottom: 10px;
-  font-size:18px;
+  font-size:9px;
   font-family: 'Titillium Web', sans-serif;
 }
 .image{
   text-align:center;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
+  width: 50px;
 }
 .sub-service-title{
   text-align: center;
-  font-size:10px;
+  font-size:5px;
   color:white;
-  opacity:0.3px;
+  opacity:0.3;
   font-family: 'Roboto', sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+  .services{
+    height:50px;
+    width:70px;
+    padding-left: 20px;
+    margin:0px 30px;
+  }
+  .footer-container ul li{
+    display: inline-block;
+    padding-left:20px;
+  }
+
+}
+@media only screen and (min-width: 1300px) {
+  .footer-wrapper{
+    width:100%;
+    background-color: black;
+  }
+  .footer-container{
+    padding: 40px 0px;
+    margin: 0px 80px;
+  }
+  .services{
+    height:130px;
+    width:160px;
+  }
+  .footer-container ul li{
+    display: inline-block;
+  }
+  .service-title{
+    text-align: center;
+    color:white;
+    padding-bottom: 10px;
+    font-size:18px;
+    font-family: 'Titillium Web', sans-serif;
+  }
+  .image{
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  .sub-service-title{
+    text-align: center;
+    font-size:10px;
+    color:white;
+    opacity:0.3px;
+    font-family: 'Roboto', sans-serif;
+  }
+  .footer-down-wrapper{
+    width:100%;
+    height:530px;
+   
+  }
+  .footer-down-container-up{
+    height: 335px;
+    padding-bottom: 100px;
+    margin:0px 375px;
+  }
+  .info{
+    height:273px;
+    padding: 50px 0px;
+    background-color: orchid;
+    width:200px;
+  } 
+  .shopx-content{
+    padding:40px 0px;
+    display: inline-block;
+  }
   
+  .useful-link{
+    height:295px;
+    width:250px;
+    display: inline-block;
+    padding-top:60px;
+    padding-right: 70px;
+    background-color: orchid;
+
+  }
+  .usefull-items-left{
+    float: left;
+  }
+  .useful-items-right{
+    float:right;
+  }
+  .info{
+    float:left;
+  }
+  .useful-link{
+    float:left;
+  }
+  .instagram-box{
+    float:left;
+  }
+
 }

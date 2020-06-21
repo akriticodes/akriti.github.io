@@ -434,6 +434,13 @@ ul li a{
         float:left; 
         width:20px;
     }
+    /*
+    .icon-left .search-bar-top{
+        display:inline-block;
+        width:10px;
+        border: none;
+
+    }*/
     
 
 }
