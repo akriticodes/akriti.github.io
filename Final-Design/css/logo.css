@@ -6,7 +6,6 @@
 .below-product-container{
   height:770px;
   position:relative;
-  margin-left: 10px;
 }
 .price-tag-container{
   display:none;
@@ -82,7 +81,8 @@
   position:absolute;
   color:white;
   font-size:20px;
-  top:20px;
+  top:25px;
+  left:10px;
   position: absolute;
   
 
@@ -90,7 +90,8 @@
 .second-price-up{
   font-size:8px;
   position:absolute;
- 
+  top: 20px;
+  right:15px;
 }
 
 
@@ -179,7 +180,7 @@
     background-color:#8ed1b7;
     float:right;
     width:58%;
-    height:770px;
+    height:775px;
   }
   .wood-sand{
     float:left;

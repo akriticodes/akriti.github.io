@@ -15,11 +15,11 @@
 ul li {
     list-style-type: none;
 }
-/*
+
 ul li a{
     text-decoration: none;
 }
-*/
+
 .menu-list{
     margin: 0px 5px ;
     text-align: center;
@@ -192,6 +192,9 @@ ul li a{
     color: #ade1c5;
 }
 
+.icon-left .search-bar-top{
+    display:none;
+}
 
 
 
@@ -334,6 +337,7 @@ ul li a{
         background-color:#ade1c5;
         position:relative;
     }
+    
     .navigation-container-top div.logo-icon{
         padding-left: 200px;
     } 

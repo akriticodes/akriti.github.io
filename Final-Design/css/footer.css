@@ -39,6 +39,7 @@
 }
 .useful-title{
   padding-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
 }
 .info{
   padding: 25px 0px;
@@ -47,6 +48,7 @@
 .shopx-content{
   padding:20px 0px;
   display: inline-block;
+  font-family: 'Roboto', sans-serif;
 }
 
 .useful-link{
@@ -64,6 +66,7 @@
 }
 .useful-items li{
   list-style-image: url(/images/bullet_03.png);
+  font-family: 'Roboto', sans-serif;
 }
 .pink-green-box{
   display:none;
@@ -75,8 +78,17 @@
   text-align:center;
 }
 .footer-image{
-  width:40%;
+  width:60%;
 }
+.copy-container-left .copyright-text{
+  font-size: 13px;
+  color:#ddd;
+  font-family: 'Roboto', sans-serif;
+}
+.read-more{
+  font-family: 'Roboto', sans-serif;
+}
+
 @media only screen and (min-width: 768px) {
   .services{
     height:50px;
@@ -135,7 +147,6 @@
   .footer-down-container-up{
     height: 335px;
     padding-bottom: 100px;
-    padding-left:200px;
     width: 1170px;
     margin: 0 auto;
   }
@@ -144,7 +155,7 @@
   }
   .info{
     height:273px;
-    padding: 50px 0px;
+    padding: 50px 80px;
     width:200px;
   } 
   .shopx-content{
@@ -191,5 +202,8 @@
   }
   .copy-container-right{
     float:right;
+  }
+  .footer-image{
+    width:125px;
   }
 }
