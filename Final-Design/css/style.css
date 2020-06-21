@@ -31,9 +31,7 @@ ul li a{
     text-align: center;
 
 }
-.icon-left .search-bar-top{
-    display:none;
-}
+
 .second-menu-container-right .search-bar{
     display:none;
 }
@@ -199,6 +197,7 @@ ul li a{
 
 
 
+
 /*tablet*/
 
 @media only screen and (min-width: 768px) {
@@ -245,11 +244,7 @@ ul li a{
         display:inline-block;
         padding-right: 35px;
         text-align: center;
-    }
-    .icon-left .searc-bar-top{
-        display:none;
-    }
-    
+    } 
     .new{
         font-size: 53px;
         font-family: 'Alex Brush', cursive;
@@ -309,6 +304,9 @@ ul li a{
         display: inline-block;
         font-size: 10px;
         padding-left:25px;
+    }
+    .icon-left .search-bar-top{
+        display:none;
     }
     .search-icon{
         display:inline-block;

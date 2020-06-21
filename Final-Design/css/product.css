@@ -79,6 +79,7 @@
   position:absolute;
   left:10px;
   top: 17px;
+  z-index: 10px;
 }
 .title{
   padding-left: 100px;
@@ -106,10 +107,7 @@
   background-color:#e7a8c6;
   
 }
-/*
-.shopping-container-right .right-box .green-box{
-  background-color:#ade1c5;
-}*/
+
 .shopping-container-down .name-price{
   margin-left:28px;
 }
@@ -127,8 +125,11 @@
   padding: 20px;
 }
 .add-to-cart .cart-icon :hover{
-  background-color: tomato;
   background: url("images/green-cart");
+}
+
+.product-class{
+  width:260px;
 }
 
 @media only screen and (min-width: 1300px) {

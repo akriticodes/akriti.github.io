@@ -67,6 +67,31 @@
    width:300px;
    text-align: center;
  }
+ .second-circle{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background:#e7a8c6;
+  position: absolute;
+  display:block;
+  right:20px;
+
+}
+
+.second-price-down{
+  position:absolute;
+  color:white;
+  font-size:20px;
+  top:20px;
+  position: absolute;
+  
+
+}
+.second-price-up{
+  font-size:8px;
+  position:absolute;
+ 
+}
 
 
 @media only screen and (min-width: 768px) {
@@ -199,6 +224,9 @@
   }
   .topic{
     color:black;
+  }
+  .second-circle{
+    display:none;
   }
 }
 
