@@ -78,35 +78,35 @@ this.render = function(){
 
 list = [
   {
-    'boxWidth' : 200,
+    'boxWidth' : 100,
     'boxHeight': 200,
     'boxColor':"blue",
     'ballRadius':20,
     'ballColor':"green",
   },
   {
-    'boxWidth' : 100,
+    'boxWidth' : 50,
     'boxHeight': 100,
     'boxColor':"yellow",
     'ballRadius':10,
     'ballColor':"red",
   },
   {
-    'boxWidth' : 200,
+    'boxWidth' : 100,
     'boxHeight': 200,
     'boxColor':"black",
     'ballRadius':20,
     'ballColor':"pink",
   },
   {
-    'boxWidth' : 100,
+    'boxWidth' : 50,
     'boxHeight': 100,
     'boxColor':"purple",
     'ballRadius':10,
     'ballColor':"white",
   },
   {
-    'boxWidth' : 200,
+    'boxWidth' : 100,
     'boxHeight': 200,
     'boxColor':"yellow",
     'ballRadius':20,
