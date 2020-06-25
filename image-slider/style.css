@@ -1,0 +1,30 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.carousel-container{
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+
+}
+.carousel-image-wrapper{
+  position : absolute;
+  width: 600px;
+  font-size: 0;
+}
+.items{
+  float: left;
+}
+
+
+
+
+
