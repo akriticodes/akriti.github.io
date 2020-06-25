@@ -12,6 +12,8 @@ var points =[
 
 ];
 
+
+
  var box = document.createElement('div');
  box.style.width='300px';
  box.style.height ='300px';
