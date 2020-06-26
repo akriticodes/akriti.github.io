@@ -76,7 +76,6 @@ function Click(i){
 }
 function createBullet(i){
   dots = document.createElement('li');
-  console.log('hello')
 
   dots.style.display = 'inline-block';
   dots.style.marginLeft = 20+ 'px';
@@ -100,7 +99,7 @@ var startPosition = 0;
 
   
 function animate(){
-  console.log("aayo")
+ 
   if (startPosition>endPosition)
     startPosition-= 20
   else
