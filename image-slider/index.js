@@ -77,6 +77,7 @@ function Click(i){
 function createBullet(i){
   dots = document.createElement('li');
 
+
   dots.style.display = 'inline-block';
   dots.style.marginLeft = 20+ 'px';
   dots.style.width = 10 + "px";
