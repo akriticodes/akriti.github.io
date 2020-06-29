@@ -12,26 +12,8 @@ function carouselMaker(PicturedContainer){
   if (!this.animateTime){
     this.animateTime = 0.5;
   }
-  this.slideRight =  function(){
-    self.holdTick = 0;
-    self.currentIndex++;
-    if (self.currentIndex > 2) self.currentIndex = 0;
-    self.endPosition = self.currentIndex * -self.IMAGE_WIDTH
-    self.animate()
-
-  }
-
-
-  this.slideLeft =function (){
-    self.holdTick = 0;
-    self.currentIndex--;
-    if (self.currentIndex < 0) self.currentIndex = 2;
-    self.endPosition = -(self.currentIndex * +self.IMAGE_WIDTH)
-    self.animate()
-  }
-
   
-
+ 
   this.createSides = function(){
     this.leftPart = document.createElement('div');
     this.leftPart.style.position = "absolute";
@@ -58,6 +40,24 @@ function carouselMaker(PicturedContainer){
 
     this.rightPart.style.backgroundRepeat= "no-repeat";
     this.PicturedContainer.appendChild(this.rightPart);
+
+    this.slideRight =  function(){
+      self.holdTick = 0;
+      self.currentIndex++;
+      if (self.currentIndex > 2) self.currentIndex = 0;
+      self.endPosition = self.currentIndex * -self.IMAGE_WIDTH
+      self.animate()
+  
+    }
+  
+  
+    this.slideLeft =function (){
+      self.holdTick = 0;
+      self.currentIndex--;
+      if (self.currentIndex < 0) self.currentIndex = 2;
+      self.endPosition = -(self.currentIndex * +self.IMAGE_WIDTH)
+      self.animate()
+    }
 
     this.leftPart.addEventListener('click',()=>{
       self.slideLeft();
