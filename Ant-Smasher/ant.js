@@ -1,11 +1,11 @@
 class Ant{
   constructor(container){
       this.container = container;
-      this.diameter = 30 ;
+      this.diameter = 60 ;
       this.x = Math.floor(Math.random() * (600 - this.diameter)) ;
       this.y = Math.floor(Math.random() * (600 - this.diameter));
       this.dy = Math.floor(Math.random() *1)+1;
-      this.dx = Math.floor(Math.random() *1)+1;
+      this.dx = Math.floor(Math.random())+1;
       this.ant = document.createElement('div');
   }
 
@@ -13,8 +13,7 @@ class Ant{
     this.ant.style.position = 'absolute';
     this.ant.style.height = this.diameter + 'px';
     this.ant.style.width = this.diameter + 'px';
-    //this.ant.style.backgroundImage = 'url(.im)';
-    this.ant.backgroundColor ="red";
+    this.ant.style.backgroundImage = 'url(images/anttt.png)';
     this.ant.style.bottom = this.y + 'px';
     this.ant.style.left = this.x + 'px';
     this.ant.style.backgroundRepeat ='no-repeat';
@@ -22,7 +21,7 @@ class Ant{
   }
 
   
-
+ 
   
 
   borderBarrier() {
@@ -42,36 +41,43 @@ class Ant{
 
 
 
-antGet(){
-  return this.ant;
+  antGet(){
+    return this.ant;
+  }
+
+  getLocation(){
+    return [this.diameter, this.x, this.y];
+  }
+  getVectors(){
+    return [this.dx, this.dy];
+  }
+  setVectors(dx, dy){
+    this.dx = dx;
+    this.dy = dy;
+  }
+
+
+ 
+
+  newposition(){
+    this.x += 1;
+    this.y += 1;
+  }
+
+ 
+
+
+  position(){
+  return[this.radius, this.x, this.y];
+  }
+
+  proceed(){
+    this.x += this.dx;
+    this.y += this.dy;
+    this.ant.style.bottom = this.y + 'px';
+    this.ant.style.left = this.x + 'px';
+  }
 }
-
-newDirection(dxDir, dyDir){
-  this.dx = dxDir;
-  this.dy = dyDir;
-}
-
-newposition(){
-  this.x += 1;
-  this.y += 1;
-}
-
-direction(){
-  return [this.dx, this.dy];
-}
-
-
-position(){
- return[this.radius, this.x, this.y];
-}
-
-proceed(){
-  this.x += this.dx;
-  this.y += this.dy;
-  this.ball.style.bottom = this.y + 'px';
-  this.ball.style.left = this.x + 'px';
-}
-
 
  
 var box = document.querySelector('.box');
@@ -102,15 +108,16 @@ function detectCollision(circle1, circle2){
 
 
 for(i= 0; i< antNumber; i++){
-  ant = new Ant(box,'#333');
+  ant = new Ant(box,'#000');
   ant.draw()
   antsArray.push(ant);
+  addClick(ant)
 }
 
-function addListener(ant){
-  ant.antGet.addEventListener('click', function(){
-    ant.antGet.remove();
-    ants = ants.filter(item => item !== ant);
+function addClick(ant){
+  ant.antGet().addEventListener('click', function(){
+    ant.antGet().remove();
+    antsArray = antsArray.filter(item => item !== ant);
     antNumber -= 1;
   });
 }
