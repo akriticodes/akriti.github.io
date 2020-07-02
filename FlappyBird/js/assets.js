@@ -6,7 +6,7 @@ const bird = {
       {sX: 276, sY : 139}
   ],
   x : 50,
-  y : 150,
+  y : 250,
   w : 34,
   h : 26,
   
@@ -19,11 +19,9 @@ const bird = {
   
   draw : function(){
       let bird = this.animation[this.frame];
-      
       ctx.save();
       ctx.translate(this.x, this.y);
-      ctx.drawImage(sprite, bird.sX, bird.sY, this.w, this.h,- this.w/2, - this.h/2, this.w, this.h);
-      
+      ctx.drawImage(sprite, bird.sX, bird.sY, this.w, this.h,- this.w/2, - this.h/2, this.w, this.h); 
       ctx.restore();
   },
   
@@ -34,13 +32,11 @@ const bird = {
   update: function(){
      
       this.period = state.current == state.getReady ? 10 : 5;
-      
       this.frame += frames%this.period == 0 ? 1 : 0;
-      
       this.frame = this.frame%this.animation.length;
       
       if(state.current == state.getReady){
-          this.y = 150; 
+          this.y = 250; 
       }else{
           this.speed += this.gravity;
           this.y += this.speed;
@@ -60,7 +56,6 @@ const bird = {
       this.speed = 0;
   }
 }
-
 
 const background = {
   sX : 0,
@@ -85,7 +80,6 @@ const foreground = {
   h: 112,
   x: 0,
   y: cvs.height - 112,
-  
   dx : 2,
   
   draw : function(){
@@ -103,7 +97,6 @@ const foreground = {
 
 const pipes = {
   position : [],
-  
   top : {
       sX : 553,
       sY : 0
@@ -136,7 +129,6 @@ const pipes = {
   
   update: function(){
       if(state.current !== state.game) return;
-      
       if(frames%100 == 0){
           this.position.push({
               x : cvs.width,
