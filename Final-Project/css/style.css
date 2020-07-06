@@ -132,6 +132,9 @@
   color: #D2C1CE;
 }
 
+.filters{
+  overflow : scroll;
+}
 
 
 
