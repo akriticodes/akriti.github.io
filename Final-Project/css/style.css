@@ -138,13 +138,19 @@
   background-color: #000;
   padding-top: 1px;
   overflow: scroll;
-  position: relative;
 }
 .pic-one{
   margin:10px;
   height: 60px;
-  background-color: #242027;
-  
+  background-color: #242027; 
+  position: relative;
 }
-
+.eye-icon{
+  position: absolute;
+  top: 20px;
+  left:20px;
+}
+.eye-icon a{
+color: #D2C1CE;
+}
 
