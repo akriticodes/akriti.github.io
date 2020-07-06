@@ -110,12 +110,9 @@
   height: 400px;
   margin: 10px;
   background-color: #000;
+  overflow : scroll;
 }
-.layers{
-  height: 150px;
-  margin: 10px;
-  background-color: #000;
-}
+
 
 .filters-options{
   padding-top: 10px;
@@ -135,10 +132,19 @@
   color: #D2C1CE;
 }
 
-.filters{
-  overflow : scroll;
+.layers{
+  height: 150px;
+  margin: 10px;
+  background-color: #000;
+  padding-top: 1px;
+  overflow: scroll;
+  position: relative;
 }
-
-
+.pic-one{
+  margin:10px;
+  height: 60px;
+  background-color: #242027;
+  
+}
 
 
