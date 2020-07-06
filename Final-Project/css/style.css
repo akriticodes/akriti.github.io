@@ -120,6 +120,10 @@
 .filters-options{
   padding-top: 10px;
   text-align: center;
+  height: 80px;
+  width: 80px;
+  float: left;
+  margin-left: 5px;
 }
 
 .filters-names{
@@ -128,7 +132,6 @@
 .filters-name{
   display: inline-block;
   font-size: 10px;
-  text-align: center;
   color: #D2C1CE;
 }
 
