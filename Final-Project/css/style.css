@@ -1,0 +1,138 @@
+
+/* header-section */
+.header-wrapper{
+  width : 100%;
+  height : 46px;
+  background-color: #242027;
+}
+
+.header-container{
+  width: 100%;
+  height: 46px;
+}
+.header-container .logo{
+  margin-left :20px;
+  width: 125px;
+}
+
+.header-container .image{
+  font-size: 30px;
+  font-family: 'Patrick Hand', cursive;
+  color:#D2C1CE;
+}
+
+.header-container .ine{
+  font-size: 20px;
+  font-family: 'Pacifico', cursive;
+  color: #D2C1CE;
+  margin-top: 4px;
+}
+
+.header-container .icons-top{
+  width:400px;
+  margin-left : calc(50% - 200px); 
+  padding-top: 10px;
+  text-align: center;
+
+}
+.header-container .icons-top a{
+  text-align: center;
+  padding:14px;
+  color: #D2C1CE;
+  font-size: 23px;
+}
+.header-container .icons-top a:hover {
+  background-color: #000;
+}
+
+
+/* middle-section */
+
+.middle-wrapper{
+  width: 100%;
+  height:610px;
+  background-color: black;
+}
+
+.middle-container{
+  width:100%;
+}
+
+/* .column-one */
+
+.middle-container .column-one{
+ width:45px;
+ height: 610px;
+ background-color: #242027 ;
+}
+
+.middle-container .column-one a{
+  display: block;
+  text-align: center;
+  padding:14px;
+  color: #D2C1CE;
+  font-size: 20px;
+}
+.middle-container .column-one a:hover {
+  background-color: #000;
+}
+
+/* column-two */
+
+.middle-container .column-two{
+  height: 590px;
+  width: calc(100% - 365px);
+  margin: 10px;
+  background-color: #19141d ;  
+}
+
+/*column-three*/
+
+.middle-container .column-three{
+  width:300px;
+  height:610px;
+  background-color: #242027 ;
+}
+.column-three .filter-tuning{
+  text-align: right;
+  margin-right: 10px;
+}
+.column-three .filter-tuning a{
+  padding:16px;
+  color: #D2C1CE;
+  font-size: 25px;
+  
+}
+.column-three .filter-tuning a:hover {
+  background-color: #000;
+}
+.filters{
+  height: 400px;
+  margin: 10px;
+  background-color: #000;
+}
+.layers{
+  height: 150px;
+  margin: 10px;
+  background-color: #000;
+}
+
+.filters-options{
+  padding-top: 10px;
+  text-align: center;
+}
+
+.filters-names{
+  height: 20px;  
+}
+.filters-name{
+  display: inline-block;
+  font-size: 10px;
+  text-align: center;
+  color: #D2C1CE;
+}
+
+
+
+
+

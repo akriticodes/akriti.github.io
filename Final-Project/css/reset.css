@@ -1,0 +1,18 @@
+*{
+  margin :0;
+  padding: 0;
+  list-style : none;
+  text-decoration: none;
+}
+.center{
+  margin-left:auto;
+  margin-right:auto;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.body{
+  color: black;
+}
