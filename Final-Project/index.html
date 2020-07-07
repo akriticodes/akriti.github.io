@@ -13,6 +13,7 @@
   <title>IMAGEine</title>
 </head>
 <body>
+  
 
 <!-- header-portion -->
   <div class = "header-wrapper">
@@ -22,7 +23,7 @@
         <div class ="ine">ine</div>
       </div>
       <div class = "icons-top" >
-        <a href="#"><i class="fa fa-photo"></i></a> 
+        <a href="#"><i class="fa fa-photo"></i></a>
         <a href="#"><i class="fa fa-save"></i></a> 
         <a href="#"><i class="fa fa-undo"></i></a> 
         <a href="#"><i class="fa fa-repeat"></i></a>
@@ -40,11 +41,14 @@
         <a href="#"><i class="fa fa-plus-square"></i></a>
         <a href="#"><i class="fa fa-trash"></i></a> 
       </div>
-      <div class = "column-two"></div>
+      <div class = "column-two">
+      <canvas id = "canvas" width="520" height="590">
+      </canvas>
+    </div>
       <div class = "column-three">
         <div class = "filter-tuning">
-          <a href="#"><i class="fa fa-magic"></i></a> 
-          <a href="#"><i class="fa fa-sliders "></i></a>
+          <a href="#"><i class="fa fa-magic" onclick="myFunction()"></i></a> 
+          <a href="#"><i class="fa fa-sliders" onclick="myFunction()"></i></a>
         </div>
         <div class = "filters">
           <div class = filters-options>
@@ -123,32 +127,70 @@
               Sepia</div>
           </div>
         </div>
-        <div class = "tuning"></div>
+        <div class = "tuning">
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" color = "grey" id="myRange">
+            </div>
+          </div>
+          
+        </div>
         <div class = "layers">
           <div class = "title">Layers</div>
-          <div class = 'pic-one'> 
-            <div class = "eye-icon">
-              <a href="#"><i class="fa fa-eye"></i></a> 
-            </div>
-          </div>
-          <div class = 'pic-one'>
-            <div class = "eye-icon">
-              <a href="#"><i class="fa fa-eye"></i></a> 
-            </div>
-          </div>
-          <div class = 'pic-one'> 
-            <div class = "eye-icon">
-              <a href="#"><i class="fa fa-eye"></i></a> 
-            </div>
-          </div>
-          <div class = 'pic-one'>
-            <div class = "eye-icon">
-              <a href="#"><i class="fa fa-eye"></i></a> 
-              </div>
-         </div>
         </div>
       </div>
     </div>
   </div>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/layoutfix.js"></script>
 </body>
 </html>

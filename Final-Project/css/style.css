@@ -106,15 +106,40 @@
 .column-three .filter-tuning a:hover {
   background-color: #000;
 }
+
 .filters{
   height: 400px;
   margin: 10px;
   background-color: #000;
   overflow : scroll;
-  scrollbar-color:#D2C1CE grey  ;
+  scrollbar-color:#D2C1CE ;
+}
+
+.tuning{
+  height: 400px;
+  margin: 10px;
+  background-color: #000;
+  padding-top:10px;
+  overflow: scroll;
+  display:none;
+ 
 }
 
 
+.tuning-options{
+  height: 40px;
+  margin-top: 5px;
+  margin-left:15px;
+}
+
+.tune-name{
+  float: left;
+  color: #D2C1CE;
+  margin-right: 20px;
+}
+.tune-range{
+  float:left;
+}
 
 .filters-options{
   padding-top: 10px;
@@ -143,17 +168,24 @@
 }
 .layers .pic-one{
   margin:10px;
-  height: 60px;
+  height: 40px;
   background-color: #242027; 
   position: relative;
 }
 .layers .pic-one .eye-icon{
   position: absolute;
-  top: 20px;
+  top: 12px;
   left:20px;
 }
 .eye-icon a{
 color: #D2C1CE;
+}
+
+.layer-title{
+  color: #D2C1CE;
+  position: absolute;
+  left:60px;
+  top:12px;
 }
 
 .title{
