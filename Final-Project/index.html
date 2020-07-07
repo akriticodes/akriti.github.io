@@ -42,7 +42,7 @@
         <a href="#"><i class="fa fa-trash"></i></a> 
       </div>
       <div class = "column-two">
-      <canvas id = "canvas" width="520" height="590">
+      <canvas id = "canvas" class ="center" width="700" height="590">
       </canvas>
     </div>
       <div class = "column-three">
@@ -50,7 +50,7 @@
           <a href="#"><i class="fa fa-magic" id = "filter-button"></i></a> 
           <a href="#"><i class="fa fa-sliders" id = "slider-button"></i></a>
         </div>
-        <div class = "filters">
+        <div class = "filters clearfix">
           <div class = filters-options>
             <img src = "image/filters.jpg">
             <div class = "filters-name">
@@ -127,7 +127,7 @@
               Sepia</div>
           </div>
         </div>
-        <div class = "tuning">
+        <div class = "tuning clearfix">
           <div class = "tuning-options">
             <div class ="tune-name">Brightness</div>
             <div class ="tune-range">
@@ -186,11 +186,15 @@
         </div>
         <div class = "layers">
           <div class = "title">Layers</div>
+          <div class = "add-layers-icon">
+            <a href="#" title =" Add Layer"><i class="fa fa-plus-square" id="layer-button"></i></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/layoutfix.js"></script>
+  <script type="text/javascript" src="js/layersadd.js"></script>
 </body>
 </html>
