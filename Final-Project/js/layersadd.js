@@ -1,8 +1,8 @@
 class Layer{
   constructor(text){
     this.text = text;
-    this.height = 590;
-    this.width = 650;
+    this.height = canvasHeight;
+    this.width = canvasWidth;
     this.InitializeLayerCanvas()
   }
   AddlayerstoList(){

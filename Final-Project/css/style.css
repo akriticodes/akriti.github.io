@@ -30,8 +30,7 @@
 }
 
 .header-container .icons-top{
-  width:400px;
-  margin-left : calc(50% - 200px); 
+  margin-left : calc(50% - 250px); 
   padding-top: 10px;
   float:left;
 
