@@ -7,29 +7,14 @@ image.src = './image/filters.jpg';
 
 ctx.drawImage(image, 0, 0);
 
+var file = document.getElementById('getFile');
+  file.addEventListener("change",fileSelectHandler, false);
 
-// function Layers(text){
-//   var node = document.querySelector(".layers");   
-//     var newDiv = document.createElement("div");
-//     newDiv.classList.add("pic-one");
-//       var eyeDiv = document.createElement("div");
-//       eyeDiv.classList.add("eye-icon");
-//           var aDiv = document.createElement("a");
-//           aDiv.href = "#";
-//             var iDiv = document.createElement("i");
-//             iDiv.classList.add("fa");
-//             iDiv.classList.add("fa-eye");
-//             aDiv.appendChild(iDiv);
+ /**
+  * Image file select handler
+  * @method fileSelectHandler 
+  */
+ function fileSelectHandler(event) {
+  filename = event.target.files[0].name.split(".")[0];
+}
 
-//       eyeDiv.appendChild(aDiv);
-//     newDiv.appendChild(eyeDiv);
-//     var textDiv = document.createElement("div");
-//     textDiv.classList.add("layer-title");
-//     textDiv.innerHTML = text;
-//     newDiv.appendChild(textDiv);
- 
-//   node.appendChild(newDiv);  
-
-// }
-
-// Layers(imageName);

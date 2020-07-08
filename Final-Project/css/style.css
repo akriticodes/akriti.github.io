@@ -13,6 +13,7 @@
 .header-container .logo{
   margin-left :20px;
   width: 125px;
+  float:left;
 }
 
 .header-container .image{
@@ -32,9 +33,25 @@
   width:400px;
   margin-left : calc(50% - 200px); 
   padding-top: 10px;
-  text-align: center;
+  float:left;
+
 
 }
+.file-button{
+  float:left;
+}
+.save{
+  float: left;
+}
+
+.undo{
+  float:left;
+}
+
+.redo{
+  float:left;
+}
+
 .header-container .icons-top a{
   text-align: center;
   padding:14px;
@@ -206,6 +223,18 @@ color: #D2C1CE;
   
 }
 .add-layers-icon:hover{
-  background-color: #242027;
+  background-color:black;
+}
+.file-button {
+  position:relative;
+
+} 
+
+.file-button input[type=file] {
+  cursor: pointer;
+  opacity: 0;
+  width: 25px;
+  left:15px;
+  position: absolute;
 }
 
