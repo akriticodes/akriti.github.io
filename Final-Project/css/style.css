@@ -82,14 +82,15 @@
  background-color: #242027 ;
 }
 
-.middle-container .column-one a{
+.middle-container .column-one div{
   display: block;
   text-align: center;
   padding:14px;
   color: #D2C1CE;
   font-size: 20px;
 }
-.middle-container .column-one a:hover {
+.middle-container .column-one div:hover {
+  cursor: pointer;
   background-color: #000;
 }
 
@@ -108,6 +109,8 @@
   width:300px;
   height:610px;
   background-color: #242027 ;
+  position:absolute;
+  right:0;
 }
 .column-three .filter-tuning{
   text-align: right;
@@ -180,19 +183,30 @@
   padding-top: 1px;
   overflow: scroll;
 }
-.layers .pic-one{
+.layers .layerDiv{
   margin:10px;
   height: 40px;
   background-color: #242027; 
   position: relative;
+  /* width: 245px; */
 }
-.layers .pic-one .eye-icon{
+
+.layers .layerDiv:hover{
+  cursor: pointer;
+  background-color: blue;
+}
+
+.activeLayerDiv{
+  background-color: greenyellow !important;
+}
+
+.layers .layerDiv .eye-icon{
   position: absolute;
   top: 12px;
   left:20px;
 }
 .eye-icon a{
-color: #D2C1CE;
+  color: #D2C1CE;
 }
 
 .layer-title{
@@ -207,6 +221,7 @@ color: #D2C1CE;
   text-align: center;
  
 }
+
 
 .add-layers-icon{
   position: fixed;
@@ -236,4 +251,5 @@ color: #D2C1CE;
   left:15px;
   position: absolute;
 }
+
 
