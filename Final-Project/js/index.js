@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 canvasDiv = document.querySelector('.column-two')
 let canvasWidth, canvasHeight;
-canvasWidth =800;
+canvasWidth =1000;
 canvasHeight = 590;
 canvas.height = canvasHeight;
 canvas.width = canvasWidth;

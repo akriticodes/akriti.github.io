@@ -9,7 +9,6 @@ class Layer{
     this.layerIndicatorDiv;
     this.AddlayerstoList();
     this.InitializeLayerCanvas();
-
   }
 
   AddlayerstoList(){
