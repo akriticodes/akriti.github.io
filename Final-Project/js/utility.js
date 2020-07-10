@@ -50,6 +50,7 @@ function updateScreen(){
   })
 }
 
+//layer array anusar div feri banaune
 function updateLayersDiv(){
   let node = document.querySelector(".layer-list");
   node.innerHTML = ''
@@ -58,12 +59,12 @@ function updateLayersDiv(){
   })
 }
 
-function swapLayer(layerIndexes){
+function swapLayer(index1, index2){
   
-  let temp = layersArray[layerIndexes[0]];
-  layersArray[layerIndexes[0]] = layersArray[layerIndexes[1]];
-  layersArray[layerIndexes[1]] = temp;
-  
+  let temp = layersArray[index1];
+  layersArray[index1] = layersArray[index2];
+  layersArray[index2] = temp;
   updateIndex();
   updateLayersDiv();
+ 
 }

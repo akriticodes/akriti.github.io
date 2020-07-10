@@ -16,7 +16,7 @@ function handleImage(e){
   reader.onload = function(event){
       var img = new Image();
       img.onload = function(){
-        image = new Layer('image',  layersArray.length);
+        image = new Layer(e.target.files[0].name,  layersArray.length);
         image.AddImageToLayers(img);
         layersArray.push(image);
         makeActive(image);
@@ -28,15 +28,12 @@ function handleImage(e){
   reader.readAsDataURL(e.target.files[0]);     
 }
 
-
-
 // Add-text-Code
 var addTextButton = document.getElementById('text-icon');
 addTextButton.addEventListener('click', function(){
   layersArray[activeLayerIndex].addText();
   updateScreen();
 })
-
 
 //Create New Layers
 layerButton = document.getElementById('layer-button');

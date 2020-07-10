@@ -92,19 +92,18 @@ class Layer{
     });
     this.upIcon.addEventListener('click', function(){
       if(index !== 0){
-        swapLayer([index, index - 1]);
-        index = index - 1;
+        swapLayer(index, index - 1);
+        index -= 1;
       }
       updateScreen();
     });
     this.downIcon.addEventListener('click', function(){
       if(index !== layersArray.length -1){
-        swapLayer([index, index + 1]);
-        index = index + 1;
+        swapLayer(index, index + 1);
+        index += 1;
       }
       updateScreen();
     });
-
   }
 
 
