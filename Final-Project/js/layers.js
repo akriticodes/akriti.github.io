@@ -58,37 +58,4 @@ class Layer{
   }
 }
 
-var activeLayer = 0;
-var layersArray = []
-
-function makeActive(layer){
-  layersArray[activeLayer].layerIndicatorDiv.classList.remove('activeLayerDiv');
-  activeLayer = layer.index;
-  layer.layerIndicatorDiv.classList.add('activeLayerDiv');
-}
-
-function addLayerEvent(layer){
-  layer.layerIndicatorDiv.addEventListener('click', function (){
-    makeActive(layer);
-  })
-}
-
-//Create New Layers
-layerButton = document.getElementById('layer-button');
-layerButton.addEventListener('click', function(){
-  layer = new Layer("Layer " + (layersArray.length + 1),  layersArray.length);
-  layersArray.push(layer);
-  makeActive(layer);
-  addLayerEvent(layer);
-})
-
-//update screen 
-function updateScreen(){
-  ctx.fillStyle = "#19141d";
-  ctx.rect(0, 0, canvasWidth, canvasHeight);
-  ctx.fill();
-  layersArray.forEach(function(layer){
-    layer.draw();
-  })
-}
 

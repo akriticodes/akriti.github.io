@@ -1,0 +1,58 @@
+var activeLayerIndex = 0;
+var layersArray = []
+let newLayerNameindex = 1;
+
+function makeActive(layer){
+  if(layersArray[activeLayerIndex])
+    layersArray[activeLayerIndex].layerIndicatorDiv.classList.remove('activeLayerDiv');
+    activeLayerIndex = layer.index;
+  layer.layerIndicatorDiv.classList.add('activeLayerDiv');
+}
+
+
+function addLayerEvent(layer){
+  layer.layerIndicatorDiv.addEventListener('click', function (){
+    makeActive(layer);
+  })
+}
+
+//Create New Layers
+layerButton = document.getElementById('layer-button');
+layerButton.addEventListener('click', function(){
+  layer = new Layer("Layer " + newLayerNameindex,  layersArray.length);
+  layersArray.push(layer);
+  makeActive(layer);
+  addLayerEvent(layer);
+  newLayerNameindex += 1;
+})
+
+function updateIndex(){
+  for (let i = 0; i<layersArray.length; i++){
+    layersArray[i].index = i;
+  }
+}
+
+
+//Delete-Layers
+var deleteLayers = document.getElementById('delete-layer-button')
+deleteLayers.addEventListener('click', function(){
+  let layerToDelete = activeLayerIndex;
+  node = document.querySelector(".layers"); 
+  node.removeChild(layersArray[layerToDelete].layerIndicatorDiv); 
+  layersArray.splice(layerToDelete, 1); 
+  updateIndex();
+  updateScreen();
+
+  makeActive(layersArray[layersArray.length-1]);
+  // layersArray.pop(activeLayerIndex);
+}) 
+
+//update screen 
+function updateScreen(){
+  ctx.fillStyle = "#19141d";
+  ctx.rect(0, 0, canvasWidth, canvasHeight);
+  ctx.fill();
+  layersArray.forEach(function(layer){
+    layer.draw();
+  })
+}

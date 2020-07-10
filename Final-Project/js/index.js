@@ -28,10 +28,12 @@ function handleImage(e){
   reader.readAsDataURL(e.target.files[0]);     
 }
 
+
+
 // Add-text-Code
 var addTextButton = document.getElementById('text-icon');
 addTextButton.addEventListener('click', function(){
-  layersArray[activeLayer].addText();
+  layersArray[activeLayerIndex].addText();
   updateScreen();
 })
 
