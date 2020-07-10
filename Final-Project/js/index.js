@@ -10,7 +10,7 @@ canvas.width = canvasWidth;
 
 //add image to the canvas
 var file = document.getElementById('getfile');
-file.addEventListener("change",handleImage);
+file.addEventListener("change", handleImage);
 function handleImage(e){
   var reader = new FileReader();
   reader.onload = function(event){
