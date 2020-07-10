@@ -189,7 +189,13 @@
   overflow: scroll;
   position:relative;
 }
-.layers .layerDiv{
+.layer-list{
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 100%;
+}
+.layers .layer-list .layerDiv{
   margin:10px;
   height: 40px;
   background-color: #242027; 

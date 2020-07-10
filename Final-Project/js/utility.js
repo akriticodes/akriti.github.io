@@ -16,19 +16,11 @@ function addLayerEvent(layer){
   })
 }
 
-//Create New Layers
-layerButton = document.getElementById('layer-button');
-layerButton.addEventListener('click', function(){
-  layer = new Layer("Layer " + newLayerNameindex,  layersArray.length);
-  layersArray.push(layer);
-  makeActive(layer);
-  addLayerEvent(layer);
-  newLayerNameindex += 1;
-})
 
 function updateIndex(){
   for (let i = 0; i<layersArray.length; i++){
     layersArray[i].index = i;
+    layersArray[i].addListenersInLayerDiv(i);
   }
 }
 
@@ -37,7 +29,7 @@ function updateIndex(){
 var deleteLayers = document.getElementById('delete-layer-button')
 deleteLayers.addEventListener('click', function(){
   let layerToDelete = activeLayerIndex;
-  node = document.querySelector(".layers"); 
+  node = document.querySelector(".layer-list"); 
   node.removeChild(layersArray[layerToDelete].layerIndicatorDiv); 
   layersArray.splice(layerToDelete, 1); 
   updateIndex();
@@ -56,4 +48,22 @@ function updateScreen(){
   layersArray.forEach(function(layer){
     layer.draw();
   })
+}
+
+function updateLayersDiv(){
+  let node = document.querySelector(".layer-list");
+  node.innerHTML = ''
+  layersArray.forEach(function(layer){
+    node.appendChild(layer.layerIndicatorDiv)
+  })
+}
+
+function swapLayer(layerIndexes){
+  
+  let temp = layersArray[layerIndexes[0]];
+  layersArray[layerIndexes[0]] = layersArray[layerIndexes[1]];
+  layersArray[layerIndexes[1]] = temp;
+  
+  updateIndex();
+  updateLayersDiv();
 }

@@ -2,44 +2,50 @@ class Layer{
   constructor(name, index ){
     this.img;
     this.text;
+    this.upIcon;
+    this.eyeIcon;
+    this.downIcon;
     this.name = name;
     this.index = index;
+    this.visible = true;
     this.width = canvasWidth;
     this.height = canvasHeight;
     this.layerIndicatorDiv;
+    
     this.AddlayerstoList();
     this.InitializeLayerCanvas();
+    this.addListenersInLayerDiv(this.index);
   }
 
   AddlayerstoList(){
-    let node = document.querySelector(".layers");   
+    let node = document.querySelector(".layer-list");   
     this.layerIndicatorDiv = document.createElement("div");
     this.layerIndicatorDiv.classList.add("layerDiv");
     let eyeDiv = document.createElement("div");
     eyeDiv.classList.add("eye-icon");
     let aDiv = document.createElement("a");
     aDiv.href = "#";
-    let iDiv = document.createElement("i");
-    iDiv.classList.add("fa");
-    iDiv.classList.add("fa-eye");
-    aDiv.appendChild(iDiv);
+    this.eyeIcon = document.createElement("i");
+    this.eyeIcon.classList.add("fa");
+    this.eyeIcon.classList.add("fa-eye");
+    aDiv.appendChild(this.eyeIcon);
     eyeDiv.appendChild(aDiv);
     this.layerIndicatorDiv.appendChild(eyeDiv);
 
     let upDiv = document.createElement('div');
     upDiv.classList.add("up-icon");
-    let jDiv = document.createElement("i");
-    jDiv.classList.add("fa");
-    jDiv.classList.add("fa-level-up");
-    upDiv.appendChild(jDiv);
+    this.upIcon = document.createElement("i");
+    this.upIcon.classList.add("fa");
+    this.upIcon.classList.add("fa-level-up");
+    upDiv.appendChild(this.upIcon);
     this.layerIndicatorDiv.appendChild(upDiv);
 
     let downDiv = document.createElement('div');
     downDiv.classList.add("down-icon");
-    let kDiv = document.createElement("i");
-    kDiv.classList.add("fa");
-    kDiv.classList.add("fa-level-down");
-    downDiv.appendChild(kDiv);
+    this.downIcon = document.createElement("i");
+    this.downIcon.classList.add("fa");
+    this.downIcon.classList.add("fa-level-down");
+    downDiv.appendChild(this.downIcon);
     this.layerIndicatorDiv.appendChild(downDiv);
     
     this.textDiv = document.createElement("div");
@@ -66,12 +72,50 @@ class Layer{
     ctx.font = "30px Arial";
   }
 
+  changeVisibility(){
+    if(this.visible){
+      this.visible = false;
+      this.eyeIcon.classList.remove('fa-eye')
+      this.eyeIcon.classList.add('fa-eye-slash')
+    }
+    else{
+      this.visible = true;
+      this.eyeIcon.classList.remove('fa-eye-slash')
+      this.eyeIcon.classList.add('fa-eye')
+    }
+  }
+
+  addListenersInLayerDiv(index){
+    this.eyeIcon.addEventListener('click', function(){
+      layersArray[index].changeVisibility();
+      updateScreen();
+    });
+    this.upIcon.addEventListener('click', function(){
+      if(index !== 0){
+        swapLayer([index, index - 1]);
+        index = index - 1;
+      }
+      updateScreen();
+    });
+    this.downIcon.addEventListener('click', function(){
+      if(index !== layersArray.length -1){
+        swapLayer([index, index + 1]);
+        index = index + 1;
+      }
+      updateScreen();
+    });
+
+  }
+
+
   draw(){
-    ctx.fillStyle = '#ffffff'
-    if(this.img)
-      ctx.drawImage(this.img, 0, 0, canvasWidth, canvasHeight);
-    if(this.text)
-      ctx.fillText(this.text, 10, 50);
+    if(this.visible){
+      ctx.fillStyle = '#ffffff'
+      if(this.img)
+        ctx.drawImage(this.img, 0, 0, canvasWidth, canvasHeight);
+      if(this.text)
+        ctx.fillText(this.text, 10, 50);
+    }
   }
 }
 

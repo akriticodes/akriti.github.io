@@ -10,7 +10,7 @@ canvas.width = canvasWidth;
 
 //add image to the canvas
 var file = document.getElementById('getfile');
-file.addEventListener("change", handleImage);
+file.addEventListener("change",handleImage);
 function handleImage(e){
   var reader = new FileReader();
   reader.onload = function(event){
@@ -37,6 +37,16 @@ addTextButton.addEventListener('click', function(){
   updateScreen();
 })
 
+
+//Create New Layers
+layerButton = document.getElementById('layer-button');
+layerButton.addEventListener('click', function(){
+  layer = new Layer("Layer " + newLayerNameindex,  layersArray.length);
+  layersArray.push(layer);
+  makeActive(layer);
+  addLayerEvent(layer);
+  newLayerNameindex += 1;
+})
 
 // zoom-in/zoom-out
 // document.onkeydown = function(e){
