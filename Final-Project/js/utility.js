@@ -42,10 +42,11 @@ deleteLayers.addEventListener('click', function(){
   layersArray.splice(layerToDelete, 1); 
   updateIndex();
   updateScreen();
-
   makeActive(layersArray[layersArray.length-1]);
-  // layersArray.pop(activeLayerIndex);
 }) 
+
+//LayersUp
+// var upLayers = document.getElementById('')
 
 //update screen 
 function updateScreen(){

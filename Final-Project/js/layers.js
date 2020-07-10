@@ -25,6 +25,23 @@ class Layer{
     aDiv.appendChild(iDiv);
     eyeDiv.appendChild(aDiv);
     this.layerIndicatorDiv.appendChild(eyeDiv);
+
+    let upDiv = document.createElement('div');
+    upDiv.classList.add("up-icon");
+    let jDiv = document.createElement("i");
+    jDiv.classList.add("fa");
+    jDiv.classList.add("fa-level-up");
+    upDiv.appendChild(jDiv);
+    this.layerIndicatorDiv.appendChild(upDiv);
+
+    let downDiv = document.createElement('div');
+    downDiv.classList.add("down-icon");
+    let kDiv = document.createElement("i");
+    kDiv.classList.add("fa");
+    kDiv.classList.add("fa-level-down");
+    downDiv.appendChild(kDiv);
+    this.layerIndicatorDiv.appendChild(downDiv);
+    
     this.textDiv = document.createElement("div");
     this.textDiv.classList.add("layer-title");
     this.textDiv.innerHTML = this.name;
