@@ -11,7 +11,7 @@ class Layer{
     this.width = canvasWidth;
     this.height = canvasHeight;
     this.layerIndicatorDiv;
-    
+    this.flipped = false;
     this.AddlayerstoList();
     this.InitializeLayerCanvas();
     this.addListenersInLayerDiv(this.index);
@@ -67,6 +67,15 @@ class Layer{
     this.img = img;
   }
 
+  flipImage(){
+    if (this.flipped){
+      this.flipped = false;
+    }
+    else{
+      this.flipped = true;
+    }
+  }
+
   addText(){
     this.text = 'Testing';
     ctx.font = "30px Arial";
@@ -109,11 +118,24 @@ class Layer{
 
   draw(){
     if(this.visible){
-      ctx.fillStyle = '#ffffff'
-      if(this.img)
-        ctx.drawImage(this.img, 0, 0, canvasWidth, canvasHeight);
-      if(this.text)
-        ctx.fillText(this.text, 10, 50);
+      if(this.flipped){
+        ctx.save();
+        ctx.scale(-1,1);
+        ctx.fillStyle = '#ffffff'
+        if(this.img)
+          ctx.drawImage(this.img, 0 - canvasWidth , 0, canvasWidth, canvasHeight);
+        if(this.text)
+          ctx.fillText(this.text, 10 - ctx.measureText(this.text).width, 50);
+        
+        ctx.restore()
+      }
+      else{
+        ctx.fillStyle = '#ffffff'
+        if(this.img)
+          ctx.drawImage(this.img, 0 , 0, canvasWidth, canvasHeight);
+        if(this.text)
+          ctx.fillText(this.text, 10, 50);
+      }
     }
   }
 }

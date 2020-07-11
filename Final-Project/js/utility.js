@@ -50,7 +50,7 @@ function updateScreen(){
   })
 }
 
-//layer array anusar div feri banaune
+//Make layer div again acc to the array
 function updateLayersDiv(){
   let node = document.querySelector(".layer-list");
   node.innerHTML = ''
@@ -60,11 +60,16 @@ function updateLayersDiv(){
 }
 
 function swapLayer(index1, index2){
-  
   let temp = layersArray[index1];
   layersArray[index1] = layersArray[index2];
   layersArray[index2] = temp;
   updateIndex();
   updateLayersDiv();
- 
+}
+
+function aspectRatio(){
+  let imageWidth = img.width;
+  let imageHeight = img.height;
+  let aspectRatio = imageWidth/imageHeight;
+  console.log(aspectRatio);
 }

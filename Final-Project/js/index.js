@@ -28,10 +28,23 @@ function handleImage(e){
   reader.readAsDataURL(e.target.files[0]);     
 }
 
+
+
 // Add-text-Code
 var addTextButton = document.getElementById('text-icon');
 addTextButton.addEventListener('click', function(){
-  layersArray[activeLayerIndex].addText();
+  layer = new Layer('text',  layersArray.length);
+  layersArray.push(layer);
+  makeActive(layer);
+  addLayerEvent(layer);
+  layer.addText();
+  updateScreen();
+})
+
+//Flip-Canvas
+var flipCanvas = document.getElementById('mirror-icon');
+flipCanvas.addEventListener('click', function(){
+  layersArray[activeLayerIndex].flipImage();
   updateScreen();
 })
 
@@ -44,6 +57,8 @@ layerButton.addEventListener('click', function(){
   addLayerEvent(layer);
   newLayerNameindex += 1;
 })
+
+
 
 // zoom-in/zoom-out
 // document.onkeydown = function(e){
