@@ -28,9 +28,40 @@ function handleImage(e){
   reader.readAsDataURL(e.target.files[0]);     
 }
 
+function startPosition(e){
+  layersArray[activeLayerIndex].painting = true;
+  layersArray[activeLayerIndex].doodles.push([])
+  layersArray[activeLayerIndex].doodle(e);
+  updateScreen();
+}
+function continuePosition(e){
+  layersArray[activeLayerIndex].doodle(e);
+  updateScreen();
+}
+function finishedPosition(){
+  layersArray[activeLayerIndex].painting = false;
+}
+
+//Add-doodle-layer
+var addDoodleButton = document.getElementById('paint-icon');
+addDoodleButton.addEventListener('click', function(){
+
+  layersArray[activeLayerIndex].painting = false;
+  canvas.addEventListener("mousedown", startPosition);
+  canvas.addEventListener("mouseup", finishedPosition);
+  canvas.addEventListener("mousemove",continuePosition);
+  
+})
 
 
-// Add-text-Code
+function removeMouseListener(){
+  canvas.removeEventListener("mousedown",startPosition );
+  canvas.removeEventListener("mouseup",finishedPosition);
+  canvas.removeEventListener("mousemove",continuePosition);
+}
+
+
+// Add-text-Layer
 var addTextButton = document.getElementById('text-icon');
 addTextButton.addEventListener('click', function(){
   layer = new Layer('text',  layersArray.length);
@@ -58,6 +89,7 @@ layerButton.addEventListener('click', function(){
   newLayerNameindex += 1;
 })
 
+//Draw Doodle
 
 
 // zoom-in/zoom-out
@@ -70,5 +102,25 @@ layerButton.addEventListener('click', function(){
 //   }
 // }
 
+
+// window.addEventListener("load",()=>{
+
+  
+//     // for(let i = 0; i < drawPoints.length; i++)
+//     // {
+//     //   ctx.lineWidth = 10;
+//     //   ctx.lineCap = "round";
+//     //   ctx.strokeStyle = "white";
+      
+//     //   ctx.lineTo(drawPoints[i][0]-50, drawPoints[i][1]-56);
+//     //   ctx.stroke();
+//     //   ctx.beginPath();
+//     //   ctx.moveTo(drawPoints[i][0]-50,drawPoints[i][1]-56)};
+//   }
+
+  
+  
+  
+// })
 
  

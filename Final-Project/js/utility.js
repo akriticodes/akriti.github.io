@@ -3,6 +3,7 @@ var layersArray = []
 let newLayerNameindex = 1;
 
 function makeActive(layer){
+  removeMouseListener()
   if(layersArray[activeLayerIndex])
     layersArray[activeLayerIndex].layerIndicatorDiv.classList.remove('activeLayerDiv');
     activeLayerIndex = layer.index;
@@ -37,8 +38,6 @@ deleteLayers.addEventListener('click', function(){
   makeActive(layersArray[layersArray.length-1]);
 }) 
 
-//LayersUp
-// var upLayers = document.getElementById('')
 
 //update screen 
 function updateScreen(){
@@ -67,9 +66,11 @@ function swapLayer(index1, index2){
   updateLayersDiv();
 }
 
-function aspectRatio(){
-  let imageWidth = img.width;
-  let imageHeight = img.height;
-  let aspectRatio = imageWidth/imageHeight;
-  console.log(aspectRatio);
-}
+//Aspect Ratio
+
+// function aspectRatio(){
+//   let imageWidth = img.width;
+//   let imageHeight = img.height;
+//   let aspectRatio = imageWidth/imageHeight;
+//   console.log(aspectRatio);
+// }

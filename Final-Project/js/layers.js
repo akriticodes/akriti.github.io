@@ -4,6 +4,7 @@ class Layer{
     this.text;
     this.upIcon;
     this.eyeIcon;
+    this.painting = false;
     this.downIcon;
     this.name = name;
     this.index = index;
@@ -12,6 +13,8 @@ class Layer{
     this.height = canvasHeight;
     this.layerIndicatorDiv;
     this.flipped = false;
+    this.doodles = [];
+    this.drawPoints = [];
     this.AddlayerstoList();
     this.InitializeLayerCanvas();
     this.addListenersInLayerDiv(this.index);
@@ -76,6 +79,14 @@ class Layer{
     }
   }
 
+  doodle(e){
+    if (!this.painting){
+      return;
+    }
+    this.doodles[this.doodles.length-1].push([e.clientX-50, e.clientY-56]);
+   
+  }
+
   addText(){
     this.text = 'Testing';
     ctx.font = "30px Arial";
@@ -135,6 +146,20 @@ class Layer{
           ctx.drawImage(this.img, 0 , 0, canvasWidth, canvasHeight);
         if(this.text)
           ctx.fillText(this.text, 10, 50);
+        if(this.doodles){
+          this.doodles.forEach(function(drawPoints){
+            ctx.beginPath();
+            ctx.lineWidth = 10;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = "white";
+            drawPoints.forEach(function(point){
+              ctx.lineTo(point[0],point[1]);
+              ctx.stroke();
+              ctx.beginPath();
+              ctx.moveTo(point[0],point[1]);
+            })
+          })
+        }
       }
     }
   }
