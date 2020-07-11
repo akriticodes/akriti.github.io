@@ -139,6 +139,20 @@ class Layer{
           ctx.fillText(this.text, 10 - ctx.measureText(this.text).width, 50);
         
         ctx.restore()
+        if(this.doodles){
+          this.doodles.forEach(function(drawPoints){
+            ctx.beginPath();
+            ctx.lineWidth = 10;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = "white";
+            drawPoints.forEach(function(point){
+              ctx.lineTo(canvasWidth - point[0], point[1]);
+              ctx.stroke();
+              ctx.beginPath();
+              ctx.moveTo(canvasWidth - point[0], point[1]);
+            })
+          })
+        }
       }
       else{
         ctx.fillStyle = '#ffffff'
