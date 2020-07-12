@@ -317,6 +317,39 @@
   width:60px;
 }
 
+/* for displaying popup text */
+.textPopUpClass{
+  height: 100px;
+  width:300px;
+  background-color:#745e6e ;
+  position: relative
+  /* display: none; */
+}
+
+.close{
+  color: #D2C1CE;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 20px;
+}
+
+#fname{
+  position: absolute;
+  left: 20%;
+  top: 40%;
+  text-align: center;
+ 
+}
+
+label{
+  position: absolute;
+  left: 40%;
+  color: #D2C1CE;
+  top:10px;
+}
+
+
 /* .eye-icon:hover{
   
 } */

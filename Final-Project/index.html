@@ -25,25 +25,33 @@
       <div class = "icons-top clearfix" >
         <div class ="file-button"><input id ="getfile" type="file" ><i class="fa fa-photo"></i></div>
         <div class ="save"><i class="fa fa-save"></i></div>
-        <div class ="undo"><i class="fa fa-undo"></i></div>
-        <div class ="redo"><i class="fa fa-repeat"></i></div>
+        <!-- <div class ="undo"><i class="fa fa-undo"></i></div>
+        <div class ="redo"><i class="fa fa-repeat"></i></div> -->
       </div>
     </div>
   </div>
   <div class = "middle-wrapper">
     <div class = "middle-container center clearfix">
       <div class = "column-one" >
-        <div id ="crop-icon"><i class="fa fa-crop"></i></div> 
+        <!-- <div id ="crop-icon"><i class="fa fa-crop"></i></div>  -->
         <div id="mirror-icon"><i class="fa fa-exchange"></i></div> 
         <div id ="text-icon"><i class="fa fa-font"></i></div> 
         <div id="paint-icon"><i class="fa fa-paint-brush"></i></div>
         <div id="sticker-icon"><i class="fa fa-smile-o"></i></div> 
         <div id="sticker-icon"><i class="fa fa-arrows-alt"></i></div> 
-        <div id="delete-icon"><i class="fa fa-trash"></i></div> 
+        <!-- <div id="delete-icon"><i class="fa fa-trash"></i></div>  -->
       </div>
       <div class = "column-two">
+        <div id = "textPopUp" class = "textPopUpClass">
+          <form>
+            <label for="fname" class = input-title>Input Text:</label><br>
+            <input type="text" id="fname" name="fname" value="Please write text"><br>
+          </form>
+          <span class="close">&times;</span>
+        </div>
       <canvas id = "canvas" class ="center" >
       </canvas>
+     
     </div>
       <div class = "column-three">
         <div class = "filter-tuning">
@@ -203,9 +211,9 @@
     </div>
   </div>
   
-  <script type="text/javascript" src="js/layoutfix.js"></script>
-  <script type="text/javascript" src="js/utility.js"></script>
-  <script type="text/javascript" src="js/layers.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+  <script src="js/layoutfix.js"></script>
+  <script src="js/utility.js"></script>
+  <script src="js/layers.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>

@@ -66,6 +66,13 @@ function removeMouseListener(){
 var addTextButton = document.getElementById('text-icon');
 addTextButton.addEventListener('click', function(){
   layer = new Layer('text',  layersArray.length);
+
+  // let textPopUp = document.querySelector(".textPopUp");   
+  //   this.textIndicatorDiv = document.createElement("div");
+  //   this.textIndicatorDiv.classList.add("textPopDiv");
+  //   textPopUp.appendChild(this.textIndicatorDiv);
+    
+
   layersArray.push(layer);
   makeActive(layer);
   addLayerEvent(layer);
@@ -104,24 +111,6 @@ layerButton.addEventListener('click', function(){
 // }
 
 
-// window.addEventListener("load",()=>{
 
-  
-//     // for(let i = 0; i < drawPoints.length; i++)
-//     // {
-//     //   ctx.lineWidth = 10;
-//     //   ctx.lineCap = "round";
-//     //   ctx.strokeStyle = "white";
-      
-//     //   ctx.lineTo(drawPoints[i][0]-50, drawPoints[i][1]-56);
-//     //   ctx.stroke();
-//     //   ctx.beginPath();
-//     //   ctx.moveTo(drawPoints[i][0]-50,drawPoints[i][1]-56)};
-//   }
-
-  
-  
-  
-// })
 
  
