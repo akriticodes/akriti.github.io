@@ -1,6 +1,7 @@
 class Layer{
   constructor(name, index ){
     this.img;
+    this.imageSize;
     this.text;
     this.upIcon;
     this.eyeIcon;
@@ -59,6 +60,7 @@ class Layer{
     
   }
 
+
   InitializeLayerCanvas(){//canvas=rectangle
     ctx.beginPath();
     ctx.fillStyle = "rgba(0,0,0,0.1)";
@@ -66,8 +68,9 @@ class Layer{
     ctx.fill();
   } 
   
-  AddImageToLayers(img){
+  AddImageToLayers(img, imgSize = [canvasWidth, canvasHeight]){
     this.img = img;
+    this.imageSize = imgSize;
   }
 
   flipImage(){
@@ -89,7 +92,7 @@ class Layer{
 
   addText(){
     this.text = 'Testing';
-    ctx.font = "30px Arial";
+    ctx.font = "20px Arial";
   }
 
   changeVisibility(){
@@ -106,24 +109,25 @@ class Layer{
   }
 
   addListenersInLayerDiv(index){
-    this.eyeIcon.addEventListener('click', function(){
-      layersArray[index].changeVisibility();
+    var that = this;
+    this.eyeIcon.addEventListener('click', function () {
+      console.log(layersArray);
+      layersArray[that.index].changeVisibility();
       updateScreen();
     });
-    this.upIcon.addEventListener('click', function(){
-      if(index !== 0){
-        swapLayer(index, index - 1);
-        index -= 1;
+    this.upIcon.addEventListener('click', function () {
+      if (that.index !== 0) {
+        swapLayer([that.index, that.index - 1]);
       }
       updateScreen();
     });
-    this.downIcon.addEventListener('click', function(){
-      if(index !== layersArray.length -1){
-        swapLayer(index, index + 1);
-        index += 1;
+    this.downIcon.addEventListener('click', function () {
+      if (that.index !== layersArray.length - 1) {
+        swapLayer([that.index, that.index + 1]);
       }
       updateScreen();
     });
+
   }
 
 
@@ -134,7 +138,7 @@ class Layer{
         ctx.scale(-1,1);
         ctx.fillStyle = '#ffffff'
         if(this.img)
-          ctx.drawImage(this.img, 0 - canvasWidth , 0, canvasWidth, canvasHeight);
+          ctx.drawImage(this.img, 0 - canvasWidth , 0, this.imageSize[0], this.imageSize[1]);
         if(this.text)
           ctx.fillText(this.text, 10 - ctx.measureText(this.text).width, 50);
         
@@ -157,13 +161,13 @@ class Layer{
       else{
         ctx.fillStyle = '#ffffff'
         if(this.img)
-          ctx.drawImage(this.img, 0 , 0, canvasWidth, canvasHeight);
+          ctx.drawImage(this.img, 0 , 0, this.imageSize[0], this.imageSize[1]);
         if(this.text)
           ctx.fillText(this.text, 10, 50);
         if(this.doodles){
           this.doodles.forEach(function(drawPoints){
             ctx.beginPath();
-            ctx.lineWidth = 10;
+            ctx.lineWidth = 5;
             ctx.lineCap = "round";
             ctx.strokeStyle = "white";
             drawPoints.forEach(function(point){

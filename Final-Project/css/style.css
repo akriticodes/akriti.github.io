@@ -243,7 +243,7 @@
 .layer-title{
   color: #D2C1CE;
   position: absolute;
-  left:60px;
+  left:50px;
   top:12px;
 }
 
@@ -295,6 +295,26 @@
   width: 25px;
   left:15px;
   position: absolute;
+}
+.sticker{
+  height:60px;
+  width: 60px;
+  display: inline-block;
+  background-color:transparent ;
+  margin-left: 20px;
+}
+
+.stickers-list{
+  height: 350px;
+  margin: 10px;
+  overflow:scroll;
+  display: none;
+  background-color:transparent ;
+}
+
+.sticker-img{
+  height: 60px;
+  width:60px;
 }
 
 /* .eye-icon:hover{

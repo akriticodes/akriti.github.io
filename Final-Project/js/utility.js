@@ -1,12 +1,17 @@
 var activeLayerIndex = 0;
 var layersArray = []
 let newLayerNameindex = 1;
+var stickers = ["images/heart.png","images/001-passport.png", "images/002-luggage.png","images/004-airplane.png","images/005-mountain.png"]
+var emojis = [0x1F600, 0x1F604, 0x1F34A, 0x1F344, 0x1F37F, 0x1F363, 0x1F370, 0x1F355,
+  0x1F354, 0x1F35F, 0x1F6C0, 0x1F48E, 0x1F5FA, 0x23F0, 0x1F579, 0x1F4DA,
+  0x1F431, 0x1F42A, 0x1F439, 0x1F424];
 
 function makeActive(layer){
   removeMouseListener()
-  if(layersArray[activeLayerIndex])
-    layersArray[activeLayerIndex].layerIndicatorDiv.classList.remove('activeLayerDiv');
-    activeLayerIndex = layer.index;
+  for (var i = 0; i < layersArray.length; i++) {
+    layersArray[i].layerIndicatorDiv.classList.remove('activeLayerDiv')
+  }
+  activeLayerIndex = layer.index;
   layer.layerIndicatorDiv.classList.add('activeLayerDiv');
 }
 
@@ -21,7 +26,6 @@ function addLayerEvent(layer){
 function updateIndex(){
   for (let i = 0; i<layersArray.length; i++){
     layersArray[i].index = i;
-    layersArray[i].addListenersInLayerDiv(i);
   }
 }
 
@@ -58,13 +62,44 @@ function updateLayersDiv(){
   })
 }
 
-function swapLayer(index1, index2){
-  let temp = layersArray[index1];
-  layersArray[index1] = layersArray[index2];
-  layersArray[index2] = temp;
+function swapLayer(layerIndexes) {
+  let temp = layersArray[layerIndexes[0]];
+  layersArray[layerIndexes[0]] = layersArray[layerIndexes[1]];
+  layersArray[layerIndexes[1]] = temp;
   updateIndex();
   updateLayersDiv();
 }
+
+let stickersnode = document.querySelector(".stickers-list");
+
+
+stickers.forEach(function(sticker){
+  AddstickerstoLayer(sticker)
+})
+function AddstickerstoLayer(sticker){
+  let stickersDiv = document.createElement("div");
+  stickersDiv.classList.add("sticker");
+  let  stickerImg = document.createElement('img');
+  stickerImg.src = sticker;
+  stickerImg.classList.add('sticker-img');
+  addStickerListener(stickersDiv, sticker);
+  stickersDiv.appendChild(stickerImg);
+  stickersnode.appendChild(stickersDiv)
+}
+
+function addStickerListener(stickersDiv, sticker){
+  stickersDiv.addEventListener('click', function(){
+    image = new Image()
+    image.src = sticker;
+    layer = new Layer('stiker',  layersArray.length);
+    layer.AddImageToLayers(image, [100, 100]);
+    layersArray.push(layer);
+    makeActive(layer);
+    addLayerEvent(layer);
+    updateScreen();
+  })
+}
+
 
 //Aspect Ratio
 

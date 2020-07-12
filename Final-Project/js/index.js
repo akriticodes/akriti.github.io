@@ -28,6 +28,7 @@ function handleImage(e){
   reader.readAsDataURL(e.target.files[0]);     
 }
 
+//doodling
 function startPosition(e){
   layersArray[activeLayerIndex].painting = true;
   layersArray[activeLayerIndex].doodles.push([])
