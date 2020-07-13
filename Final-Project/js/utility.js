@@ -89,7 +89,7 @@ function addStickerListener(stickersDiv, sticker){
   stickersDiv.addEventListener('click', function(){
     image = new Image()
     image.src = sticker;
-    layer = new Layer('stiker',  layersArray.length);
+    layer = new Layer('sticker ',  layersArray.length);
     layer.AddImageToLayers(image, [100, 100]);
     layersArray.push(layer);
     makeActive(layer);
