@@ -90,8 +90,8 @@ class Layer{
    
   }
 
-  addText(){
-    this.text = 'Testing';
+  addText(text){
+    this.text = text;
     ctx.font = "20px Arial";
   }
 
@@ -167,7 +167,7 @@ class Layer{
         if(this.doodles){
           this.doodles.forEach(function(drawPoints){
             ctx.beginPath();
-            ctx.lineWidth = 5;
+            ctx.lineWidth = 10;
             ctx.lineCap = "round";
             ctx.strokeStyle = "white";
             drawPoints.forEach(function(point){

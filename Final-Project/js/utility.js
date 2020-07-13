@@ -108,7 +108,3 @@ function addStickerListener(stickersDiv, sticker){
 //   console.log(aspectRatio);
 // }
 
-var closebtns = document.getElementsByClassName("close");
-  closebtns.addEventListener("click", function() {
-    closebtns.style.display = 'none';
-  });

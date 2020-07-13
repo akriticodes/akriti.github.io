@@ -322,8 +322,10 @@
   height: 100px;
   width:300px;
   background-color:#745e6e ;
-  position: relative
-  /* display: none; */
+  position: absolute;
+  top: calc( 50% - 50px);
+  left: calc(50% - 150px);
+  display: none;
 }
 
 .close{
@@ -331,7 +333,8 @@
   position: absolute;
   right: 0px;
   top: 0px;
-  font-size: 20px;
+  font-size: 25px;
+  background-color: black;
 }
 
 #fname{
@@ -347,6 +350,12 @@ label{
   left: 40%;
   color: #D2C1CE;
   top:10px;
+}
+
+#ok-button{
+  position: absolute;
+  bottom: 15px;
+  right:48%;
 }
 
 

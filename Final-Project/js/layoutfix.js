@@ -31,5 +31,20 @@ emojiButton.addEventListener('click', function(){
 
 })
 
+let closebtns = document.querySelector(".close");
+  closebtns.addEventListener("click", function() {
+    let textPopUpDiv = document.querySelector(".textPopUpClass");
+    textPopUpDiv.style.display = 'none';
+  });
+
+  let okButtonDiv = document.getElementById("ok-button");
+  okButtonDiv.addEventListener("click", function() {
+    let textInput = document.getElementById('fname')
+    addTextToLayer(textInput.value);
+    textInput.value = '';
+    let textPopUpDiv = document.querySelector(".textPopUpClass");
+    textPopUpDiv.style.display = 'none';
+  });
+
 
 

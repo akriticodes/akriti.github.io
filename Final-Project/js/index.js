@@ -61,11 +61,8 @@ function removeMouseListener(){
   canvas.removeEventListener("mousemove",continuePosition);
 }
 
-
-// Add-text-Layer
-var addTextButton = document.getElementById('text-icon');
-addTextButton.addEventListener('click', function(){
-  layer = new Layer('text',  layersArray.length);
+function addTextToLayer(text){
+   layer = new Layer('text',  layersArray.length);
 
   // let textPopUp = document.querySelector(".textPopUp");   
   //   this.textIndicatorDiv = document.createElement("div");
@@ -76,8 +73,15 @@ addTextButton.addEventListener('click', function(){
   layersArray.push(layer);
   makeActive(layer);
   addLayerEvent(layer);
-  layer.addText();
+  layer.addText(text);
   updateScreen();
+}
+
+// Add-text-Layer
+var addTextButton = document.getElementById('text-icon');
+addTextButton.addEventListener('click', function(){
+  let textPopUpDiv = document.querySelector(".textPopUpClass");
+  textPopUpDiv.style.display = 'block';
 })
 
 //Flip-Canvas
