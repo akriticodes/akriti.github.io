@@ -44,7 +44,17 @@ let closebtns = document.querySelector(".close");
     textInput.value = '';
     let textPopUpDiv = document.querySelector(".textPopUpClass");
     textPopUpDiv.style.display = 'none';
+
   });
+
+//removing the onpress enter
+
+window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();
+  let textInput = document.getElementById('fname')
+  addTextToLayer(textInput.value);
+  textInput.value = '';
+  let textPopUpDiv = document.querySelector(".textPopUpClass");
+  textPopUpDiv.style.display = 'none';}}},true);
 
 
 

@@ -326,6 +326,7 @@
   top: calc( 50% - 50px);
   left: calc(50% - 150px);
   display: none;
+  border: 5px #D2C1CE ;
 }
 
 .close{
@@ -342,6 +343,7 @@
   left: 20%;
   top: 40%;
   text-align: center;
+  
  
 }
 
