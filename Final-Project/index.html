@@ -34,13 +34,12 @@
     <div class = "middle-container center clearfix">
       <div class = "column-one" >
         <!-- <div id ="crop-icon"><i class="fa fa-crop"></i></div>  -->
-        <div id="mirror-icon" ><i class="fa fa-exchange" title = "flip"></i></div> 
+        <div id="mirror-icon"><i class="fa fa-exchange"></i></div> 
         <div id ="text-icon"><i class="fa fa-font"></i></div> 
         <div id="paint-icon"><i class="fa fa-paint-brush"></i></div>
         <div id="sticker-icon"><i class="fa fa-smile-o"></i></div> 
-        <div id="move-icon"><i class="fa fa-arrows"></i></div> 
-        <!-- <div id="rotate-icon"><i class="fa fa-rotate-right"></i></div>  -->
-        <div id="resize-icon"><i class="fa fa-wrench"></i></div> 
+        <div id="move-icon"><i class="fa fa-arrows-alt"></i></div> 
+        <div id="resize-icon"><i class="fa fa-expand"></i></div> 
       </div>
       <div class = "column-two">
         <div id = "textPopUp" class = "textPopUpClass">
@@ -49,7 +48,16 @@
             <input type="text" autocomplete = "off" id="fname" name="fname" placeholder="Please write your text here"><br>
           </form>
           <button  id = "ok-button">OK</button>
-          <span class="close">&times;</span>
+           <span class="close">&times;</span>
+        </div>
+        <div id = "resize" class = "resize-class">
+          <form>
+            <label class = "labelforWidth">Width:</label><br>
+            <input type="text" id="popUpwidth" ><br>
+            <label class = "labelforHeight">Height:</label><br>
+            <input type="text" id="popUpheight" >
+          </form>
+          <button  id = "ok-buttonResize">OK</button>
         </div>
       <canvas id = "canvas" class ="center" >
       </canvas>
@@ -138,63 +146,61 @@
           </div>
         </div>
         <div class = "tuning clearfix">
-          <form id = "slider-form">
-              <div class = "tuning-options">
-                <div>
-                <!-- <div class ="tune-name">Brightness</div> -->
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-              <div class = "tuning-options">
-                <div class ="tune-name">Contrast</div>
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-              <div class = "tuning-options">
-                <div class ="tune-name">Brightness</div>
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-              <div class = "tuning-options">
-                <div class ="tune-name">Brightness</div>
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-              <div class = "tuning-options">
-                <div class ="tune-name">Brightness</div>
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-              <div class = "tuning-options">
-                <div class ="tune-name">Brightness</div>
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-              <div class = "tuning-options">
-                <div class ="tune-name">Brightness</div>
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-              <div class = "tuning-options">
-                <div class ="tune-name">Brightness</div>
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-              <div class = "tuning-options">
-                <div class ="tune-name">Brightness</div>
-                <div class ="tune-range">
-                  <input type="range" min="1" max="100" value="50" class="slider" color = "grey" id="myRange">
-                </div>
-              </div>
-          </form>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Contrast</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+          <div class = "tuning-options">
+            <div class ="tune-name">Brightness</div>
+            <div class ="tune-range">
+              <input type="range" min="1" max="100" value="50" class="slider" color = "grey" id="myRange">
+            </div>
+          </div>
+          
         </div>
         <div class= "stickers-list" id = "stickers-button">
         </div>
@@ -219,6 +225,5 @@
   <script src="js/utility.js"></script>
   <script src="js/layers.js"></script>
   <script src="js/index.js"></script>
-  <script src="js/tuning.js"></script>
 </body>
 </html>

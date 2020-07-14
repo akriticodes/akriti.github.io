@@ -118,6 +118,13 @@ addTextButton.addEventListener('click', function(){
   textPopUpDiv.style.display = 'block';
 })
 
+// Add-resize-Layer
+var addResizeButton = document.getElementById('resize-icon');
+addResizeButton.addEventListener('click', function(){
+  let resizePopUpDiv = document.querySelector(".resize-class");
+  resizePopUpDiv.style.display = 'block';
+})
+
 //Flip-Canvas
 var flipCanvas = document.getElementById('mirror-icon');
 flipCanvas.addEventListener('click', function(){
@@ -126,7 +133,7 @@ flipCanvas.addEventListener('click', function(){
 })
 
 
-//Rotate-Canvas
+// //Rotate-Canvas
 // var rotateCanvas = document.getElementById('rotate-icon');
 // rotateCanvas.addEventListener('click', function(){
 //   layersArray[activeLayerIndex].rotateImage();

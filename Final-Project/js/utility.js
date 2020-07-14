@@ -1,7 +1,7 @@
 var activeLayerIndex = 0;
 var layersArray = []
 let newLayerNameindex = 1;
-var stickers = ["images/heart.png","images/001-passport.png", "images/002-luggage.png","images/004-airplane.png","images/005-mountain.png", "images/009-bus.png", "images/017-diary.png", "images/029-camcorder.png", "images/bikini [sticker].png", "images/shorts.png", "images/sunglasses.png"]
+var stickers = ["images/heart.png","images/001-passport.png", "images/002-luggage.png","images/004-airplane.png","images/005-mountain.png", "images/009-bus.png", "images/017-diary.png", "images/029-camcorder.png", "images/bikini [sticker].png"]
 
 
 function makeActive(layer){

@@ -44,7 +44,7 @@ class Layer{
     upDiv.classList.add("up-icon");
     this.upIcon = document.createElement("i");
     this.upIcon.classList.add("fa");
-    this.upIcon.classList.add("fa-level-up");
+    this.upIcon.classList.add("fa-level-down");
     upDiv.appendChild(this.upIcon);
     this.layerIndicatorDiv.appendChild(upDiv);
 
@@ -52,7 +52,7 @@ class Layer{
     downDiv.classList.add("down-icon");
     this.downIcon = document.createElement("i");
     this.downIcon.classList.add("fa");
-    this.downIcon.classList.add("fa-level-down");
+    this.downIcon.classList.add("fa-level-up");
     downDiv.appendChild(this.downIcon);
     this.layerIndicatorDiv.appendChild(downDiv);
     
@@ -89,6 +89,15 @@ class Layer{
     }
     else{
       this.flipped = true;
+    }
+  }
+
+  resizeLayer(newWidth, newHeight ){
+    if (this.img){
+      if(newWidth)
+        this.imageSize[0] = newWidth;
+      if(newHeight)
+        this.imageSize[1] = newHeight;
     }
   }
 
