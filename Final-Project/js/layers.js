@@ -1,28 +1,32 @@
 class Layer{
   constructor(name, index ){
     this.img;
-    this.imageSize;
     this.text;
     this.upIcon;
     this.eyeIcon;
-    this.painting = false;
     this.downIcon;
+    this.imageSize;
     this.name = name;
+    this.doodles = [];
+    this.rotation = 0;
+    this.positionX = 0;
+    this.positionY = 0;
     this.index = index;
     this.visible = true;
+    this.drawPoints = [];
+    this.moveing = false;
+    this.flipped = false;
+    this.painting = false;
+    this.AddlayerstoList();
+    this.layerIndicatorDiv;
+    this.layerIndicatorDiv;
     this.width = canvasWidth;
     this.height = canvasHeight;
-    this.layerIndicatorDiv;
-    this.flipped = false;
-    this.doodles = [];
-    this.drawPoints = [];
-    this.AddlayerstoList();
     this.InitializeLayerCanvas();
     this.addListenersInLayerDiv(this.index);
   }
 
-  AddlayerstoList(){
-    let node = document.querySelector(".layer-list");   
+  AddlayerstoList(){ 
     this.layerIndicatorDiv = document.createElement("div");
     this.layerIndicatorDiv.classList.add("layerDiv");
     let eyeDiv = document.createElement("div");
@@ -54,23 +58,29 @@ class Layer{
     
     this.textDiv = document.createElement("div");
     this.textDiv.classList.add("layer-title");
-    this.textDiv.innerHTML = this.name;
-    this.layerIndicatorDiv.appendChild(this.textDiv);
-    node.appendChild(this.layerIndicatorDiv);  
-    
+    this.textDiv.innerHTML = this.name.slice(0, 15);
+    this.layerIndicatorDiv.appendChild(this.textDiv); 
   }
 
 
-  InitializeLayerCanvas(){//canvas=rectangle
+  InitializeLayerCanvas(){//canvas= transparent rectangle
     ctx.beginPath();
     ctx.fillStyle = "rgba(0,0,0,0.1)";
     ctx.rect(0, 0, this.width, this.height);
     ctx.fill();
   } 
   
-  AddImageToLayers(img, imgSize = [canvasWidth, canvasHeight]){
+  AddImageToLayers(img, imgSize){
     this.img = img;
     this.imageSize = imgSize;
+  }
+
+  rotateImage(){
+    ctx.save(); 
+    this.rotation = Math.PI/2;
+    ctx.translate(this.width/2, this.height/2);
+    ctx.rotate(this.rotation);
+    ctx.restore();
   }
 
   flipImage(){
@@ -90,7 +100,21 @@ class Layer{
    
   }
 
+  move(e){
+    if(!this.moveing){
+      return;
+    }
+    if (this.img){
+      this.positionX = e.clientX - this.imageSize[0]/2 - 60;
+      this.positionY = e.clientY - this.imageSize[1]/2 - 60;
+    }
+    if(this.text){
+      this.positionX = e.clientX - ctx.measureText(this.text).width/2 - 40;
+      this.positionY = e.clientY - 100;
+    }
+  }
   addText(text){
+    this.textDiv.innerHTML = text.slice(0, 15);
     this.text = text;
     ctx.font = "20px Arial";
   }
@@ -132,17 +156,20 @@ class Layer{
 
 
   draw(){
+    // if(this.rotation !== 0){
+    //   //  
+    // }
     if(this.visible){
       if(this.flipped){
         ctx.save();
         ctx.scale(-1,1);
         ctx.fillStyle = '#ffffff'
         if(this.img)
-          ctx.drawImage(this.img, 0 - canvasWidth , 0, this.imageSize[0], this.imageSize[1]);
+          ctx.drawImage(this.img, -this.positionX - this.imageSize[0], this.positionY , this.imageSize[0], this.imageSize[1]);
         if(this.text)
-          ctx.fillText(this.text, 10 - ctx.measureText(this.text).width, 50);
+          ctx.fillText(this.text, -this.positionX + 10 - ctx.measureText(this.text).width, this.positionY  + 50);
         
-        ctx.restore()
+        ctx.restore();
         if(this.doodles){
           this.doodles.forEach(function(drawPoints){
             ctx.beginPath();
@@ -161,9 +188,9 @@ class Layer{
       else{
         ctx.fillStyle = '#ffffff'
         if(this.img)
-          ctx.drawImage(this.img, 0 , 0, this.imageSize[0], this.imageSize[1]);
+          ctx.drawImage(this.img, this.positionX , this.positionY, this.imageSize[0], this.imageSize[1]);
         if(this.text)
-          ctx.fillText(this.text, 10, 50);
+          ctx.fillText(this.text, this.positionX + 10 , this.positionY + 50);
         if(this.doodles){
           this.doodles.forEach(function(drawPoints){
             ctx.beginPath();
@@ -180,6 +207,7 @@ class Layer{
         }
       }
     }
+  // ctx.restore();
   }
 }
 

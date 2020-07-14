@@ -47,7 +47,7 @@ let closebtns = document.querySelector(".close");
 
   });
 
-//removing the onpress enter
+//removing the onpress enter form submit 
 
 window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();
   let textInput = document.getElementById('fname')
@@ -55,6 +55,9 @@ window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.ke
   textInput.value = '';
   let textPopUpDiv = document.querySelector(".textPopUpClass");
   textPopUpDiv.style.display = 'none';}}},true);
+
+
+  
 
 
 

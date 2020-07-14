@@ -1,7 +1,7 @@
 var activeLayerIndex = 0;
 var layersArray = []
 let newLayerNameindex = 1;
-var stickers = ["images/heart.png","images/001-passport.png", "images/002-luggage.png","images/004-airplane.png","images/005-mountain.png"]
+var stickers = ["images/heart.png","images/001-passport.png", "images/002-luggage.png","images/004-airplane.png","images/005-mountain.png", "images/009-bus.png", "images/017-diary.png", "images/029-camcorder.png", "images/bikini [sticker].png", "images/shorts.png", "images/sunglasses.png"]
 
 
 function makeActive(layer){
@@ -54,10 +54,11 @@ function updateScreen(){
 //Make layer div again acc to the array
 function updateLayersDiv(){
   let node = document.querySelector(".layer-list");
-  node.innerHTML = ''
-  layersArray.forEach(function(layer){
-    node.appendChild(layer.layerIndicatorDiv)
-  })
+  node.innerHTML = '';
+  for(let i = layersArray.length-1; i>=0; i--){
+    node.appendChild(layersArray[i].layerIndicatorDiv)
+  }
+
 }
 
 function swapLayer(layerIndexes) {
@@ -89,11 +90,12 @@ function addStickerListener(stickersDiv, sticker){
   stickersDiv.addEventListener('click', function(){
     image = new Image()
     image.src = sticker;
-    layer = new Layer('sticker ',  layersArray.length);
+    layer = new Layer(sticker.slice(7,-4),  layersArray.length);
     layer.AddImageToLayers(image, [100, 100]);
     layersArray.push(layer);
     makeActive(layer);
-    addLayerEvent(layer);
+    addLayerEvent(layer); 
+    updateLayersDiv();
     updateScreen();
   })
 }

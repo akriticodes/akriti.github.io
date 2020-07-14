@@ -17,10 +17,14 @@ function handleImage(e){
       var img = new Image();
       img.onload = function(){
         image = new Layer(e.target.files[0].name,  layersArray.length);
-        image.AddImageToLayers(img);
+        var hRatio = canvas.width / img.width;
+        var vRatio = canvas.height / img.height;
+        var ratio  = Math.min ( hRatio, vRatio );
+        image.AddImageToLayers(img, [img.width*ratio, img.height*ratio]);
         layersArray.push(image);
         makeActive(image);
         addLayerEvent(image);  
+        updateLayersDiv();
         updateScreen();
       }
       img.src = event.target.result;
@@ -43,10 +47,30 @@ function finishedPosition(){
   layersArray[activeLayerIndex].painting = false;
 }
 
+//moveing
+function changePosition(e){
+  layersArray[activeLayerIndex].moveing = true;
+  layersArray[activeLayerIndex].move(e);
+  updateScreen();
+}
+function continueChangePosition(e){
+  layersArray[activeLayerIndex].move(e);
+  updateScreen();
+}
+function finishChangePosition(){
+  layersArray[activeLayerIndex].moveing = false;
+}
+
+
 //Add-doodle-layer
 var addDoodleButton = document.getElementById('paint-icon');
 addDoodleButton.addEventListener('click', function(){
-
+  doodle = new Layer('doodle',  layersArray.length);
+  layersArray.push(doodle);
+  makeActive(doodle);
+  addLayerEvent(doodle);  
+  updateLayersDiv(); 
+  updateScreen();
   layersArray[activeLayerIndex].painting = false;
   canvas.addEventListener("mousedown", startPosition);
   canvas.addEventListener("mouseup", finishedPosition);
@@ -54,6 +78,15 @@ addDoodleButton.addEventListener('click', function(){
   
 })
 
+//move-layer-elements
+var moveButton = document.getElementById('move-icon');
+moveButton.addEventListener('click', function(){
+  layersArray[activeLayerIndex].painting = false;
+  canvas.addEventListener("mousedown", changePosition);
+  canvas.addEventListener("mouseup", finishChangePosition);
+  canvas.addEventListener("mousemove", continueChangePosition);
+  
+})
 
 function removeMouseListener(){
   canvas.removeEventListener("mousedown",startPosition );
@@ -73,7 +106,8 @@ function addTextToLayer(text){
   layersArray.push(layer);
   makeActive(layer);
   addLayerEvent(layer);
-  layer.addText(text);
+  layer.addText(text); 
+  updateLayersDiv();
   updateScreen();
 }
 
@@ -91,6 +125,15 @@ flipCanvas.addEventListener('click', function(){
   updateScreen();
 })
 
+
+//Rotate-Canvas
+// var rotateCanvas = document.getElementById('rotate-icon');
+// rotateCanvas.addEventListener('click', function(){
+//   layersArray[activeLayerIndex].rotateImage();
+//   updateScreen();
+// })
+
+
 //Create New Layers
 layerButton = document.getElementById('layer-button');
 layerButton.addEventListener('click', function(){
@@ -98,7 +141,8 @@ layerButton.addEventListener('click', function(){
   layersArray.push(layer);
   makeActive(layer);
   addLayerEvent(layer);
-  newLayerNameindex += 1;
+  newLayerNameindex += 1; 
+  updateLayersDiv();
 })
 
 //Draw Doodle
