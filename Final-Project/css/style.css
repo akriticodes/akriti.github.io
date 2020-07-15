@@ -366,7 +366,7 @@ label{
   height: 120px;
   width:300px;
   background-color:#745e6e ;
-  position: relative;
+  position: absolute;
   top: calc( 50% - 50px);
   left: calc(50% - 150px);
   display : none;
