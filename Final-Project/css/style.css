@@ -39,9 +39,12 @@
 }
 .file-button{
   float:left;
+  cursor : pointer;
+  
 }
 .save{
   float: left;
+  cursor: pointer;
 }
 
 .undo{

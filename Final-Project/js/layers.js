@@ -28,6 +28,7 @@ class Layer{
     this.brightness = 0;//secondish
     this.contrast = 0;
     this.saturation = 0;
+    this.tint = 0;
   }
 
   AddlayerstoList(){ 
@@ -178,12 +179,21 @@ class Layer{
       }
       
     }
+
+    if(this.tint !==0){
+      for(var i=0; i< myImageData.data.length; i+=4) {
+        myImageData.data[i+1] = myImageData.data[i+1] +  this.tint //G
+        if(myImageData.data[i+1] > 255) myImageData.data[i+1] = 255;
+        if(myImageData.data[i+1] < 0) myImageData.data[i+1] = 0;
+      }
+   }
+
     ctx.putImageData(myImageData, 0,0);
   }
 
   //two
   setBrightness(e){
-    this.brightness = (e.target.value - 50) * 2; 
+    this.brightness = (e.target.value - 50); 
     updateScreen();
   }
   setContrast(e){
@@ -192,7 +202,12 @@ class Layer{
   }
 
   setSaturation(e){
-    this.saturation = (e.target.value - 50)/25; 
+    this.saturation = (e.target.value -50); 
+    updateScreen();
+  }
+
+  setTint(e){
+    this.tint = (e.target.value - 50); 
     updateScreen();
   }
 
@@ -284,7 +299,7 @@ class Layer{
         if(this.img)
           this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
       }//four
-      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0)
+      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0)
         this.changeTuning()
     }
   

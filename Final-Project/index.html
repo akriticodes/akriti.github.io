@@ -23,8 +23,8 @@
         <div class ="ine">ine</div>
       </div>
       <div class = "icons-top clearfix" >
-        <div class ="file-button"><input id ="getfile" type="file" ><i class="fa fa-photo"></i></div>
-        <div class ="save"><i class="fa fa-save"></i></div>
+        <div class ="file-button"><input id ="getfile" type="file" ><i class="fa fa-photo" title = "Add Image"></i></div>
+        <div class ="save" title = "Save Image"><i class="fa fa-save"></i></div>
         <!-- <div class ="undo"><i class="fa fa-undo"></i></div>
         <div class ="redo"><i class="fa fa-repeat"></i></div> -->
       </div>
@@ -34,12 +34,12 @@
     <div class = "middle-container center clearfix">
       <div class = "column-one" >
         <!-- <div id ="crop-icon"><i class="fa fa-crop"></i></div>  -->
-        <div id="mirror-icon"><i class="fa fa-exchange"></i></div> 
-        <div id ="text-icon"><i class="fa fa-font"></i></div> 
-        <div id="paint-icon"><i class="fa fa-paint-brush"></i></div>
-        <div id="sticker-icon"><i class="fa fa-smile-o"></i></div> 
-        <div id="move-icon"><i class="fa fa-arrows-alt"></i></div> 
-        <div id="resize-icon"><i class="fa fa-expand"></i></div> 
+        <div id="mirror-icon"><i class="fa fa-exchange" title = "Mirror Image"></i></div> 
+        <div id ="text-icon"><i class="fa fa-font" title = "Write Text"></i></div> 
+        <div id="paint-icon"><i class="fa fa-paint-brush" title = "Paint"></i></div>
+        <div id="sticker-icon"><i class="fa fa-smile-o" title = "Add Sticker"></i></div> 
+        <div id="move-icon"><i class="fa fa-arrows-alt" title = "Move"></i></div> 
+        <div id="resize-icon"><i class="fa fa-expand" title = "Resize"></i></div> 
       </div>
       <div class = "column-two">
         <div id = "textPopUp" class = "textPopUpClass">
@@ -65,8 +65,8 @@
     </div>
       <div class = "column-three">
         <div class = "filter-tuning">
-          <a href="#"><i class="fa fa-magic" id = "filter-button"></i></a> 
-          <a href="#"><i class="fa fa-sliders" id = "slider-button"></i></a>
+          <a href="#"><i class="fa fa-magic" id = "filter-button" title = "Add Filter"></i></a> 
+          <a href="#"><i class="fa fa-sliders" id = "slider-button" title = "Add Sliders"></i></a>
         </div>
         <div class = "filters clearfix">
           <div class = filters-options>
@@ -165,9 +165,9 @@
             </div>
           </div>
           <div class = "tuning-options">
-            <div class ="tune-name">Hue</div>
+            <div class ="tune-name">Tint</div>
             <div class ="tune-range">
-              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+              <input type="range" min="1" max="100" value="50" class="tintSlider" id="myRange">
             </div>
           </div>
          

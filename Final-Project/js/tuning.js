@@ -16,3 +16,9 @@ inputrangeSaturation.addEventListener('input',function(event){
 	layersArray[0].setSaturation(event)
 });
 
+//one-tint
+let inputrangeTint = document.querySelector('.tintSlider');
+inputrangeTint.addEventListener('input',function(event){
+	layersArray[0].setTint(event)
+});
+
