@@ -24,6 +24,8 @@ class Layer{
     this.height = canvasHeight;
     this.InitializeLayerCanvas();
     this.addListenersInLayerDiv(this.index);
+    this.imageData;
+    this.brightness = 0;//secondish
   }
 
   AddlayerstoList(){ 
@@ -127,6 +129,23 @@ class Layer{
     this.text = text;
     ctx.font = "20px Arial";
   }
+//two
+  setBrightness(e){
+    this.brightness = (e.target.value - 50) * 2; 
+    updateScreen();
+  }
+//five
+  changeBrightness(){
+    let myImageData = ctx.createImageData(this.imageData);
+      for (var i=0; i < myImageData.data.length; i++) {
+        let s = this.brightness;
+        myImageData.data[i] =this.imageData.data[i]+s < 255 ? this.imageData.data[i]+s : 255;
+        myImageData.data[i+1] = this.imageData.data[i+1]+s < 255 ?this.imageData.data[i+1]+s : 255;
+        myImageData.data[i+2] = this.imageData.data[i+2]+10 < 255 ? this.imageData.data[i+2]+s : 255;
+      }
+      ctx.putImageData(myImageData, this.positionX, this.positionY);
+      
+    }
 
   changeVisibility(){
     if(this.visible){
@@ -144,7 +163,6 @@ class Layer{
   addListenersInLayerDiv(index){
     var that = this;
     this.eyeIcon.addEventListener('click', function () {
-      console.log(layersArray);
       layersArray[that.index].changeVisibility();
       updateScreen();
     });
@@ -165,9 +183,6 @@ class Layer{
 
 
   draw(){
-    // if(this.rotation !== 0){
-    //   //  
-    // }
     if(this.visible){
       if(this.flipped){
         ctx.save();
@@ -193,6 +208,8 @@ class Layer{
             })
           })
         }
+        if(this.img)
+          this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
       }
       else{
         ctx.fillStyle = '#ffffff'
@@ -214,8 +231,13 @@ class Layer{
             })
           })
         }
-      }
+        if(this.img)
+          this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
+      }//four
+      if (this.brightness !== 0)
+        this.changeBrightness();
     }
+  
   // ctx.restore();
   }
 }

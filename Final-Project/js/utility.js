@@ -1,7 +1,7 @@
 var activeLayerIndex = 0;
 var layersArray = []
 let newLayerNameindex = 1;
-var stickers = ["images/heart.png","images/001-passport.png", "images/002-luggage.png","images/004-airplane.png","images/005-mountain.png", "images/009-bus.png", "images/017-diary.png", "images/029-camcorder.png", "images/bikini [sticker].png"]
+var stickers = ["images/heart.png","images/001-passport.png", "images/002-luggage.png","images/004-airplane.png","images/005-mountain.png", "images/009-bus.png", "images/017-diary.png", "images/029-camcorder.png"]
 
 
 function makeActive(layer){
@@ -40,7 +40,7 @@ deleteLayers.addEventListener('click', function(){
   makeActive(layersArray[layersArray.length-1]);
 }) 
 
-
+//three
 //update screen 
 function updateScreen(){
   ctx.fillStyle = "#19141d";
@@ -97,16 +97,10 @@ function addStickerListener(stickersDiv, sticker){
     addLayerEvent(layer); 
     updateLayersDiv();
     updateScreen();
+    
+    layer.imageData = ctx.getImageData(0,0,canvasWidth,canvasHeight);
   })
 }
 
 
-//Aspect Ratio
-
-// function aspectRatio(){
-//   let imageWidth = img.width;
-//   let imageHeight = img.height;
-//   let aspectRatio = imageWidth/imageHeight;
-//   console.log(aspectRatio);
-// }
 

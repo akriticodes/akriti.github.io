@@ -26,6 +26,7 @@ function handleImage(e){
         addLayerEvent(image);  
         updateLayersDiv();
         updateScreen();
+        image.imageData = ctx.getImageData(0,0,image.imageSize[0],image.imageSize[1]);
       }
       img.src = event.target.result;
   }
@@ -96,13 +97,6 @@ function removeMouseListener(){
 
 function addTextToLayer(text){
    layer = new Layer('text',  layersArray.length);
-
-  // let textPopUp = document.querySelector(".textPopUp");   
-  //   this.textIndicatorDiv = document.createElement("div");
-  //   this.textIndicatorDiv.classList.add("textPopDiv");
-  //   textPopUp.appendChild(this.textIndicatorDiv);
-    
-
   layersArray.push(layer);
   makeActive(layer);
   addLayerEvent(layer);
