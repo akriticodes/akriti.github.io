@@ -29,6 +29,10 @@ class Layer{
     this.contrast = 0;
     this.saturation = 0;
     this.tint = 0;
+    this.temperature = 0;
+    this.filters = {
+      1997 : false , sepia : false 
+    }
   }
 
   AddlayerstoList(){ 
@@ -186,7 +190,23 @@ class Layer{
         if(myImageData.data[i+1] > 255) myImageData.data[i+1] = 255;
         if(myImageData.data[i+1] < 0) myImageData.data[i+1] = 0;
       }
-   }
+    }
+
+    if (this.temperature){
+      for(var i=0; i< myImageData.data.length; i+=4) {
+        myImageData.data[i] =(myImageData.data[i] + this.temperature)//R
+        //_data[i+1] = //G
+        myImageData.data[i+2] =(myImageData.data[i+2] - this.temperature)//B
+
+        if(myImageData.data[i] > 255) myImageData.data[i] = 255;
+        if(myImageData.data[i+2] > 255) myImageData.data[i+2] = 255;
+        if(myImageData.data[i] < 0)myImageData.data[i] = 0;
+        if(myImageData.data[i+2] < 0) myImageData.data[i+2] = 0;
+      }
+    }
+    // if (this.filters['1997']) {
+
+    // }
 
     ctx.putImageData(myImageData, 0,0);
   }
@@ -208,6 +228,11 @@ class Layer{
 
   setTint(e){
     this.tint = (e.target.value - 50); 
+    updateScreen();
+  }
+
+  setTemperature(e){
+    this.temperature = (e.target.value - 50); 
     updateScreen();
   }
 
@@ -299,7 +324,7 @@ class Layer{
         if(this.img)
           this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
       }//four
-      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0)
+      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0)
         this.changeTuning()
     }
   

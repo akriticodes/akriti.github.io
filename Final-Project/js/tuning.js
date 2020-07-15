@@ -22,3 +22,10 @@ inputrangeTint.addEventListener('input',function(event){
 	layersArray[0].setTint(event)
 });
 
+
+//one-temperature
+let inputrangeTemp = document.querySelector('.temperatureSlider');
+inputrangeTemp.addEventListener('input',function(event){
+	layersArray[0].setTemperature(event)
+});
+
