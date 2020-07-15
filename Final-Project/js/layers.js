@@ -30,9 +30,10 @@ class Layer{
     this.saturation = 0;
     this.tint = 0;
     this.temperature = 0;
-    this.filters = {
-      1997 : false , sepia : false 
-    }
+    this.vibrance = 0;
+    // this.filters = {
+    //   1997 : false , sepia : false 
+    // }
   }
 
   AddlayerstoList(){ 
@@ -204,10 +205,23 @@ class Layer{
         if(myImageData.data[i+2] < 0) myImageData.data[i+2] = 0;
       }
     }
-    // if (this.filters['1997']) {
 
-    // }
 
+    if (this.vibrance){
+      for(var i=0; i< myImageData.data.length; i+=4) {
+        var r = myImageData.data.length[i];
+        var g = myImageData.data.length[i+1];
+        var b = myImageData.data.length[i+2];
+        var max = Math.max(r, g, b);
+        var avg = (r + g + b) / 3;
+        var amt = ((Math.abs(max - avg) * 2 / 255) * this.vibrance) / 100;
+        if (r < max) myImageData.data.length[i] = r + (myImageData.data.length- data[i]) * amt;
+        if (g < max) myImageData.data.length[i+1] = g + (myImageData.data.length - data[i+1]) * amt;
+        if (b < max) myImageData.data.length[i+2] = b + (myImageData.data.length- data[i+2]) * amt;
+      }
+    }
+
+   
     ctx.putImageData(myImageData, 0,0);
   }
 
@@ -222,7 +236,7 @@ class Layer{
   }
 
   setSaturation(e){
-    this.saturation = (e.target.value -50); 
+    this.saturation = (e.target.value -50)/25; 
     updateScreen();
   }
 
@@ -235,6 +249,13 @@ class Layer{
     this.temperature = (e.target.value - 50); 
     updateScreen();
   }
+
+  setVibrance(e){
+    this.vibrance = (e.target.value -50) * 30; 
+    updateScreen();
+  }
+
+  
 
 
   changeVisibility(){
@@ -324,7 +345,7 @@ class Layer{
         if(this.img)
           this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
       }//four
-      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0)
+      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0)
         this.changeTuning()
     }
   

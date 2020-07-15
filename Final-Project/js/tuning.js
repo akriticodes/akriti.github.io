@@ -29,3 +29,13 @@ inputrangeTemp.addEventListener('input',function(event){
 	layersArray[0].setTemperature(event)
 });
 
+//one-temperature
+let inputrangeVibrance = document.querySelector('.vibranceSlider');
+inputrangeVibrance.addEventListener('input',function(event){
+	layersArray[0].setVibrance(event)
+});
+
+
+
+
+
