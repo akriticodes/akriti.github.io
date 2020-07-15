@@ -26,6 +26,8 @@ class Layer{
     this.addListenersInLayerDiv(this.index);
     this.imageData;
     this.brightness = 0;//secondish
+    this.contrast = 0;
+    this.saturation = 0;
   }
 
   AddlayerstoList(){ 
@@ -129,23 +131,71 @@ class Layer{
     this.text = text;
     ctx.font = "20px Arial";
   }
-//two
+
+//three
+  changeTuning(){
+    let myImageData = ctx.createImageData(this.imageData);
+    for (var i=0; i < myImageData.data.length; i++){
+      myImageData.data[i] = this.imageData.data[i];
+    }
+    if(this.brightness !==0){
+      for (var i=0; i < myImageData.data.length; i++) {
+        let s = this.brightness;
+        myImageData.data[i] =myImageData.data[i]+s < 255 ? myImageData.data[i]+s : 255;
+        myImageData.data[i+1] = myImageData.data[i+1]+s < 255 ?myImageData.data[i+1]+s : 255;
+        myImageData.data[i+2] = myImageData.data[i+2]+10 < 255 ? myImageData.data[i+2]+s : 255;
+      }
+    }
+    if(this.contrast !==0){
+      let factor = (259 * (this.contrast + 255)) / (255 * (259 - this.contrast));
+      for (let i=0; i < myImageData.data.length; i+=4) {//r,g,b,a
+        myImageData.data[i] =  factor * (myImageData.data[i] - 128) + 128;
+        myImageData.data[i+1] = factor * (myImageData.data[i+1] - 128) + 128;
+        myImageData.data[i+2] =  factor * (myImageData.data[i+2] - 128) + 128;
+      }
+    }
+    if(this.saturation !==0){
+      var RW = 0.299;
+      var RG = 0.587;
+      var RB = 0.114;
+      var sBar = parseFloat(1 - this.saturation);         
+      var a =  sBar * RW + this.saturation;
+      var b =  sBar * RW;
+      var c =  sBar * RW;
+      var d =  sBar * RG;
+      var e = sBar * RG + this.saturation;
+      var f = sBar * RG;
+      var g = sBar * RB;
+      var h = sBar * RB;
+      var itemp = sBar * RB + this.saturation;
+      for(var i=0; i< myImageData.data.length; i+=4) {
+        var tempRed = myImageData.data[i];
+        var tempGreen = myImageData.data[i+1];
+        var tempBlue = myImageData.data[i+2];
+        myImageData.data[i] = a * tempRed + d * tempGreen + g * tempBlue//R
+        myImageData.data[i+1] = b * tempRed + e * tempGreen + h * tempBlue//G
+        myImageData.data[i+2] = c * tempRed + f * tempGreen + itemp * tempBlue//B
+      }
+      
+    }
+    ctx.putImageData(myImageData, 0,0);
+  }
+
+  //two
   setBrightness(e){
     this.brightness = (e.target.value - 50) * 2; 
     updateScreen();
   }
-//five
-  changeBrightness(){
-    let myImageData = ctx.createImageData(this.imageData);
-      for (var i=0; i < myImageData.data.length; i++) {
-        let s = this.brightness;
-        myImageData.data[i] =this.imageData.data[i]+s < 255 ? this.imageData.data[i]+s : 255;
-        myImageData.data[i+1] = this.imageData.data[i+1]+s < 255 ?this.imageData.data[i+1]+s : 255;
-        myImageData.data[i+2] = this.imageData.data[i+2]+10 < 255 ? this.imageData.data[i+2]+s : 255;
-      }
-      ctx.putImageData(myImageData, this.positionX, this.positionY);
-      
-    }
+  setContrast(e){
+    this.contrast = (e.target.value - 50) * 2; 
+    updateScreen();
+  }
+
+  setSaturation(e){
+    this.saturation = (e.target.value - 50)/25; 
+    updateScreen();
+  }
+
 
   changeVisibility(){
     if(this.visible){
@@ -234,8 +284,8 @@ class Layer{
         if(this.img)
           this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
       }//four
-      if (this.brightness !== 0)
-        this.changeBrightness();
+      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0)
+        this.changeTuning()
     }
   
   // ctx.restore();
