@@ -33,6 +33,17 @@ function handleImage(e){
   reader.readAsDataURL(e.target.files[0]);     
 }
 
+//download image from canvas
+// var downloadBtn = document.getElementById('.downloadBtn')
+// downloadBtn.addEventListener('click', downloadImg);
+// function downloadImg(){
+
+// }
+
+
+//delete image from the canvas
+
+
 //doodling
 function startPosition(e){
   layersArray[activeLayerIndex].painting = true;

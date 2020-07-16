@@ -32,7 +32,7 @@ class Layer{
     this.temperature = 0;
     this.vibrance = 0;
     this.filters = {
-      1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false
+      1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
     }
   }
 
@@ -206,6 +206,17 @@ class Layer{
       myImageData = this.changeSaturation(this.changeBrightness(this.changeTint(this.changeTemperature(myImageData,74),70),4),0);
     }
 
+    if(this.filters['classic']){
+      for(var i = 0; i < myImageData.data.length; i+=4) {
+        var avg = (myImageData.data[i] + myImageData.data[i +1] + myImageData.data[i +2]) / 3;
+        if(myImageData.data[i] < (myImageData.data[i+1] * 2) || myImageData.data[i] < (myImageData.data[i+2] * 2)) {
+          myImageData.data[i]     = avg; // red
+          myImageData.data[i + 1] = avg; // green
+          myImageData.data[i + 2] = avg; // blue  
+        } 
+      }
+    }
+
     if (this.vibrance){
       for(var i=0; i< myImageData.data.length; i+=4) {
         var r = myImageData.data.length[i];
@@ -221,7 +232,7 @@ class Layer{
     }
 
    
-    ctx.putImageData(myImageData, 0,0);
+    ctx.putImageData(myImageData, 0, 0);
   }
 
   //two
@@ -410,7 +421,7 @@ class Layer{
         if(this.img)
           this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
       }//four
-      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0 || this.filters['moon'] || this.filters['sepia'] || this.filters['nostalgic'] || this.filters['inkwell'] || this.filters['fineArt'] || this.filters['clarendon'] ) 
+      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0 || this.filters['moon'] || this.filters['sepia'] || this.filters['nostalgic'] || this.filters['inkwell'] || this.filters['fineArt'] || this.filters['clarendon'] || this.filters['classic']) 
         this.changeTuning()
     }
   
