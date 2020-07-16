@@ -24,7 +24,7 @@
       </div>
       <div class = "icons-top clearfix" >
         <div class ="file-button"><input id ="getfile" type="file" ><i class="fa fa-photo" title = "Add Image"></i></div>
-        <div class ="save" title = "Save Image" id = "downloadBtn"><i class="fa fa-save"></i></div>
+        <div class ="save" title = "Save Image" ><a href = '#' id = "downloadFile" ><i class="fa fa-save"></i></a></div>
         <!-- <div class ="undo"><i class="fa fa-undo"></i></div>
         <div class ="redo"><i class="fa fa-repeat"></i></div> -->
       </div>
@@ -69,6 +69,13 @@
           <a href="#"><i class="fa fa-sliders" id = "slider-button" title = "Editing Options"></i></a>
         </div>
         <div class = "filters clearfix">
+          <div class = filters-options>
+            <button class = 'filter-normal'>
+              <img src = "images/filters.jpg">
+              <div class = "filters-name">
+                Normal</div>
+            </button>
+          </div>
           <div class = filters-options>
             <button class = 'filter-moon'>
               <img src = "images/filters.jpg">
@@ -118,13 +125,7 @@
                 Classic</div>
             </button>
           </div>
-          <div class = filters-options>
-            <button>
-              <img src = "images/filters.jpg">
-              <div class = "filters-name">
-                Sepia</div>
-            </button>
-          </div>
+         
           <div class = filters-options>
             <button>
               <img src = "images/filters.jpg">

@@ -61,6 +61,12 @@
   color: #D2C1CE !important;
   font-size: 23px;
 }
+
+.header-container .icons-top div a{
+  color: #D2C1CE !important;
+}
+
+
 .header-container .icons-top div:hover{
   background-color: #000;
 }

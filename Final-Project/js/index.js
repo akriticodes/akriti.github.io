@@ -13,6 +13,7 @@ var file = document.getElementById('getfile');
 file.addEventListener("change",handleImage);
 function handleImage(e){
   var reader = new FileReader();
+  filename = e.target.files[0].name;
   reader.onload = function(event){
       var img = new Image();
       img.onload = function(){
@@ -34,11 +35,19 @@ function handleImage(e){
 }
 
 //download image from canvas
-// var downloadBtn = document.getElementById('.downloadBtn')
-// downloadBtn.addEventListener('click', downloadImg);
-// function downloadImg(){
-
-// }
+var downloadBtn = document.getElementById('downloadBtn')
+downloadFile.addEventListener('click', downloadImg);
+function downloadImg(){
+  canvas.width = layersArray[0].imageSize[0];
+  canvas.height = layersArray[0].imageSize[1];
+  updateScreen()
+  image = canvas.toDataURL("image/png");
+  downloadFile.download = layersArray[0].name.slice(0, -4)+ '-imageine.jpg';
+  downloadFile.href = image;
+  canvas.width = canvasWidth;
+  canvas.height = canvasHeight;
+  updateScreen();
+  }
 
 
 //delete image from the canvas

@@ -1,3 +1,13 @@
+let normalButtonClassic = document.querySelector('.filter-normal');
+normalButtonClassic.addEventListener('click',function(){
+  layersArray[0].filters = {
+    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, normal : false
+  }
+  layersArray[0].filters['normal'] = true;
+  updateScreen()
+});
+
+
 let filterButtonMoon = document.querySelector('.filter-moon');
 filterButtonMoon.addEventListener('click',function(){
   layersArray[0].filters = {
