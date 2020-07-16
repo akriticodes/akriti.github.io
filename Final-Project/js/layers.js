@@ -31,9 +31,9 @@ class Layer{
     this.tint = 0;
     this.temperature = 0;
     this.vibrance = 0;
-    // this.filters = {
-    //   1997 : false , sepia : false 
-    // }
+    this.filters = {
+      1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false
+    }
   }
 
   AddlayerstoList(){ 
@@ -145,67 +145,66 @@ class Layer{
       myImageData.data[i] = this.imageData.data[i];
     }
     if(this.brightness !==0){
-      for (var i=0; i < myImageData.data.length; i++) {
-        let s = this.brightness;
-        myImageData.data[i] =myImageData.data[i]+s < 255 ? myImageData.data[i]+s : 255;
-        myImageData.data[i+1] = myImageData.data[i+1]+s < 255 ?myImageData.data[i+1]+s : 255;
-        myImageData.data[i+2] = myImageData.data[i+2]+10 < 255 ? myImageData.data[i+2]+s : 255;
-      }
+      myImageData = this.changeBrightness(myImageData, this.brightness)
     }
     if(this.contrast !==0){
-      let factor = (259 * (this.contrast + 255)) / (255 * (259 - this.contrast));
-      for (let i=0; i < myImageData.data.length; i+=4) {//r,g,b,a
-        myImageData.data[i] =  factor * (myImageData.data[i] - 128) + 128;
-        myImageData.data[i+1] = factor * (myImageData.data[i+1] - 128) + 128;
-        myImageData.data[i+2] =  factor * (myImageData.data[i+2] - 128) + 128;
-      }
+      myImageData = this.changeContrast(myImageData, this.contrast)
     }
     if(this.saturation !==0){
-      var RW = 0.299;
-      var RG = 0.587;
-      var RB = 0.114;
-      var sBar = parseFloat(1 - this.saturation);         
-      var a =  sBar * RW + this.saturation;
-      var b =  sBar * RW;
-      var c =  sBar * RW;
-      var d =  sBar * RG;
-      var e = sBar * RG + this.saturation;
-      var f = sBar * RG;
-      var g = sBar * RB;
-      var h = sBar * RB;
-      var itemp = sBar * RB + this.saturation;
-      for(var i=0; i< myImageData.data.length; i+=4) {
-        var tempRed = myImageData.data[i];
-        var tempGreen = myImageData.data[i+1];
-        var tempBlue = myImageData.data[i+2];
-        myImageData.data[i] = a * tempRed + d * tempGreen + g * tempBlue//R
-        myImageData.data[i+1] = b * tempRed + e * tempGreen + h * tempBlue//G
-        myImageData.data[i+2] = c * tempRed + f * tempGreen + itemp * tempBlue//B
-      }
-      
+     myImageData = this.changeSaturation(myImageData, this.saturation)
     }
 
     if(this.tint !==0){
-      for(var i=0; i< myImageData.data.length; i+=4) {
-        myImageData.data[i+1] = myImageData.data[i+1] +  this.tint //G
-        if(myImageData.data[i+1] > 255) myImageData.data[i+1] = 255;
-        if(myImageData.data[i+1] < 0) myImageData.data[i+1] = 0;
+      myImageData = this.changeTint(myImageData, this.tint)
+    }
+
+    if (this.temperature !==0){
+      myImageData = this.changeTemperature(myImageData, this.temperature)
+    }
+
+    if(this.filters['moon']){
+        myImageData = this.changeSaturation(this.changeBrightness(myImageData, 10),0.5);
+    }
+
+    if(this.filters['nostalgic']){
+      myImageData = this.changeTemperature(this.changeTint(this.changeContrast(this.changeBrightness(myImageData, 10),40),10),-30);
+    }
+
+    if(this.filters['fineArt']){
+      for (var i=0; i < myImageData.data.length; i+=4) {
+        var avg = ( myImageData.data[i] + myImageData.data[i +1] +  myImageData.data[i +2]) / 3;
+        myImageData.data[i]     = avg; // red
+        myImageData.data[i + 1] = avg; // green
+        myImageData.data[i + 2] = avg; // blue
       }
     }
 
-    if (this.temperature){
-      for(var i=0; i< myImageData.data.length; i+=4) {
-        myImageData.data[i] =(myImageData.data[i] + this.temperature)//R
-        //_data[i+1] = //G
-        myImageData.data[i+2] =(myImageData.data[i+2] - this.temperature)//B
+    if(this.filters['clarendon']){
+      myImageData = this.changeSaturation(this.changeContrast(this.changeBrightness(myImageData,37),2),1.25);
+    }
+    
 
+    if(this.filters['sepia']){
+      var s = 2;
+      for (var i=0; i < myImageData.data.length; i+=4) {
+        var r = myImageData.data[i];
+        var g = myImageData.data[i+1];
+        var b = myImageData.data[i+2];
+        myImageData.data[i] = ((r * (1 - (0.607 * s))) + (g * (0.769 * s)) + (b * (0.189 * s)));
+        myImageData.data[i+1] = ((r * (0.349 * s)) + (g * (1 - (0.314 * s))) + (b * (0.168 * s)));
+        myImageData.data[i+2] = ((r * (0.272 * s)) + (g * (0.534 * s)) + (b * (1- (0.869 * s))));
         if(myImageData.data[i] > 255) myImageData.data[i] = 255;
+        if(myImageData.data[i+1] > 255) myImageData.data[i+1] = 255;
         if(myImageData.data[i+2] > 255) myImageData.data[i+2] = 255;
-        if(myImageData.data[i] < 0)myImageData.data[i] = 0;
-        if(myImageData.data[i+2] < 0) myImageData.data[i+2] = 0;
+        if(myImageData.data[i] < 0)  myImageData.data[i] = 0;
+        if(myImageData.data[i+1] < 0)  myImageData.data[i+1] = 0;
+        if(myImageData.data[i+2] < 0)  myImageData.data[i+2] = 0; 
       }
     }
-
+    
+    if(this.filters['clarendon']){
+      myImageData = this.changeSaturation(this.changeBrightness(this.changeTint(this.changeTemperature(myImageData,74),70),4),0);
+    }
 
     if (this.vibrance){
       for(var i=0; i< myImageData.data.length; i+=4) {
@@ -251,11 +250,77 @@ class Layer{
   }
 
   setVibrance(e){
-    this.vibrance = (e.target.value -50) * 30; 
+    this.vibrance = (e.target.value -50) * 4 ; 
     updateScreen();
   }
 
-  
+  changeBrightness(myImageData, s){
+    for (var i=0; i < myImageData.data.length; i++) {
+      myImageData.data[i] =myImageData.data[i]+s < 255 ? myImageData.data[i]+s : 255;
+      myImageData.data[i+1] = myImageData.data[i+1]+s < 255 ?myImageData.data[i+1]+s : 255;
+      myImageData.data[i+2] = myImageData.data[i+2]+10 < 255 ? myImageData.data[i+2]+s : 255;
+    }
+    return myImageData;
+  }
+
+  changeContrast(myImageData, contrast){
+    let factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
+      for (let i=0; i < myImageData.data.length; i+=4) {//r,g,b,a
+        myImageData.data[i] =  factor * (myImageData.data[i] - 128) + 128;
+        myImageData.data[i+1] = factor * (myImageData.data[i+1] - 128) + 128;
+        myImageData.data[i+2] =  factor * (myImageData.data[i+2] - 128) + 128;
+      }
+      return myImageData;
+  }
+
+  changeTint(myImageData, tint){
+    for(var i=0; i< myImageData.data.length; i+=4) {
+      myImageData.data[i+1] = myImageData.data[i+1] +  tint //G
+      if(myImageData.data[i+1] > 255) myImageData.data[i+1] = 255;
+      if(myImageData.data[i+1] < 0) myImageData.data[i+1] = 0;
+    }
+    return myImageData;
+  }
+
+
+  changeSaturation(myImageData,saturation){
+    var RW = 0.299;
+    var RG = 0.587;
+    var RB = 0.114;
+    var sBar = parseFloat(1 - saturation);         
+    var a =  sBar * RW + saturation;
+    var b =  sBar * RW;
+    var c =  sBar * RW;
+    var d =  sBar * RG;
+    var e = sBar * RG + saturation;
+    var f = sBar * RG;
+    var g = sBar * RB;
+    var h = sBar * RB;
+    var itemp = sBar * RB + saturation;
+    for(var i=0; i< myImageData.data.length; i+=4) {
+      var tempRed = myImageData.data[i];
+      var tempGreen = myImageData.data[i+1];
+      var tempBlue = myImageData.data[i+2];
+      myImageData.data[i] = a * tempRed + d * tempGreen + g * tempBlue//R
+      myImageData.data[i+1] = b * tempRed + e * tempGreen + h * tempBlue//G
+      myImageData.data[i+2] = c * tempRed + f * tempGreen + itemp * tempBlue//B
+    }
+    return myImageData;
+  }
+
+  changeTemperature(myImageData,temperature){
+    for(var i=0; i< myImageData.data.length; i+=4) {
+      myImageData.data[i] =(myImageData.data[i] + temperature)//R
+      //_data[i+1] = //G
+      myImageData.data[i+2] =(myImageData.data[i+2] - temperature)//B
+
+      if(myImageData.data[i] > 255) myImageData.data[i] = 255;
+      if(myImageData.data[i+2] > 255) myImageData.data[i+2] = 255;
+      if(myImageData.data[i] < 0)myImageData.data[i] = 0;
+      if(myImageData.data[i+2] < 0) myImageData.data[i+2] = 0;
+    }
+    return myImageData;
+  }
 
 
   changeVisibility(){
@@ -345,7 +410,7 @@ class Layer{
         if(this.img)
           this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
       }//four
-      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0)
+      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0 || this.filters['moon'] || this.filters['sepia'] || this.filters['nostalgic'] || this.filters['inkwell'] || this.filters['fineArt'] || this.filters['clarendon'] ) 
         this.changeTuning()
     }
   
