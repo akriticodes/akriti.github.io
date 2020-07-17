@@ -75,4 +75,14 @@ filterButtonClassic.addEventListener('click',function(){
   updateScreen()
 });
 
+let filterButtonRaw = document.querySelector('.filter-raw');
+filterButtonRaw.addEventListener('click',function(){
+  layersArray[0].filters = {
+    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, raw : false
+  }
+  layersArray[0].filters['raw'] = true;
+  updateScreen()
+});
+
+
 

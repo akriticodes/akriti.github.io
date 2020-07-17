@@ -32,7 +32,7 @@ class Layer{
     this.temperature = 0;
     this.vibrance = 0;
     this.filters = {
-      1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, normal : false
+      1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, normal : false, raw : false
     }
   }
 
@@ -179,8 +179,8 @@ class Layer{
       }
     }
 
-    if(this.filters['clarendon']){
-      myImageData = this.changeSaturation(this.changeContrast(this.changeBrightness(myImageData,37),2),1.25);
+    if(this.filters['raw']){
+      myImageData = this.changeSaturation(this.changeContrast(this.changeBrightness(myImageData,5),1),3);
     }
     
 
@@ -203,7 +203,7 @@ class Layer{
     }
     
     if(this.filters['clarendon']){
-      myImageData = this.changeSaturation(this.changeBrightness(this.changeTint(this.changeTemperature(myImageData,24),30),4),0);
+      myImageData = this.changeSaturation(this.changeBrightness(this.changeTint(this.changeTemperature(myImageData,14),4),4),14);
     }
 
     if(this.filters['inkwell']){
@@ -220,6 +220,10 @@ class Layer{
         } 
       }
     }
+
+
+
+    
 
     if (this.vibrance){
       for(var i=0; i< myImageData.data.length; i+=4) {
@@ -425,7 +429,7 @@ class Layer{
         if(this.img)
           this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
       }//four
-      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0 || this.filters['moon'] || this.filters['sepia'] || this.filters['nostalgic'] || this.filters['inkwell'] || this.filters['fineArt'] || this.filters['clarendon'] || this.filters['classic'] || this.filters['normal']) 
+      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0 || this.filters['moon'] || this.filters['sepia'] || this.filters['nostalgic'] || this.filters['inkwell'] || this.filters['fineArt'] || this.filters['clarendon'] || this.filters['classic'] || this.filters['normal']|| this.filters['raw']) 
         this.changeTuning()
     }
   
