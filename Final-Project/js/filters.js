@@ -1,88 +1,146 @@
-let normalButtonClassic = document.querySelector('.filter-normal');
+var normalButtonClassic = document.querySelector('.filter-normal');
 normalButtonClassic.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, normal : false
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, normal : false
+    }
+    layersArray[0].filters['normal'] = true;
+    updateScreen()  
   }
-  layersArray[0].filters['normal'] = true;
-  updateScreen()
 });
 
-
-let filterButtonMoon = document.querySelector('.filter-moon');
+var filterButtonMoon = document.querySelector('.filter-moon');
 filterButtonMoon.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+    }
+    layersArray[0].filters['moon'] = true;
+    updateScreen()
   }
-  layersArray[0].filters['moon'] = true;
-  updateScreen()
 });
 
-
-let filterButtonSepia = document.querySelector('.filter-sepia');
+var filterButtonSepia = document.querySelector('.filter-sepia');
 filterButtonSepia.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+    }
+    layersArray[0].filters['sepia'] = true;
+    updateScreen()
   }
-  layersArray[0].filters['sepia'] = true;
-  updateScreen()
 });
 
-let filterButtonNostalgic = document.querySelector('.filter-nostalgic');
+var filterButtonNostalgic = document.querySelector('.filter-nostalgic');
 filterButtonNostalgic.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
-  } 
-  layersArray[0].filters['nostalgic'] = true;
-  updateScreen()
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+    } 
+    layersArray[0].filters['nostalgic'] = true;
+    updateScreen()
+  }
 });
 
-
-let filterButtonInkwell = document.querySelector('.filter-inkwell');
+var filterButtonInkwell = document.querySelector('.filter-inkwell');
 filterButtonInkwell.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+    }
+    layersArray[0].filters['inkwell'] = true;
+    updateScreen()
   }
-  layersArray[0].filters['inkwell'] = true;
-  updateScreen()
 });
 
-
-
-let filterButtonfineArt = document.querySelector('.filter-fineArt');
+var filterButtonfineArt = document.querySelector('.filter-fineArt');
 filterButtonfineArt.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
-  }
-  layersArray[0].filters['fineArt'] = true;
-  updateScreen()
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+    }
+    layersArray[0].filters['fineArt'] = true;
+    updateScreen()
+  }  
 });
 
-let filterButtonCharledon = document.querySelector('.filter-clarendon');
+var filterButtonCharledon = document.querySelector('.filter-clarendon');
 filterButtonCharledon.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
-  }
-  layersArray[0].filters['clarendon'] = true;
-  updateScreen()
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+    }
+    layersArray[0].filters['clarendon'] = true;
+    updateScreen()
+  }  
 });
 
-let filterButtonClassic = document.querySelector('.filter-classic');
+var filterButtonClassic = document.querySelector('.filter-classic');
 filterButtonClassic.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
-  }
-  layersArray[0].filters['classic'] = true;
-  updateScreen()
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false
+    }
+    layersArray[0].filters['classic'] = true;
+    updateScreen()
+  }  
 });
 
-let filterButtonRaw = document.querySelector('.filter-raw');
+var filterButtonRaw = document.querySelector('.filter-raw');
 filterButtonRaw.addEventListener('click',function(){
-  layersArray[0].filters = {
-    1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, raw : false
-  }
-  layersArray[0].filters['raw'] = true;
-  updateScreen()
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, raw : false
+    }
+    layersArray[0].filters['raw'] = true;
+    updateScreen()
+  }  
 });
+
+var filterButtonCalm = document.querySelector('.filter-Calm');
+filterButtonCalm.addEventListener('click',function(){
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, raw : false, calm : false
+    }
+    layersArray[0].filters['calm'] = true;
+    updateScreen()
+  }  
+});
+
+var filterButtonMoody = document.querySelector('.filter-moody');
+filterButtonMoody.addEventListener('click',function(){
+  if (!layersArray[activeLayerIndex])
+    alertUser()
+  else{
+    layersArray[0].filters = {
+      1997 : false, sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, raw : false, calm : false
+    }
+    layersArray[0].filters['moody'] = true;
+    updateScreen()
+  }  
+});
+
 
 
 

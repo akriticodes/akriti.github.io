@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
   <link rel = "stylesheet" type = "text/css" href ="css/style.css">
   <link rel = "stylesheet" type = "text/css" href ="css/reset.css">
   <link rel = "stylesheet" type = "text/css" href ="css/layout.css">
@@ -25,15 +26,12 @@
       <div class = "icons-top clearfix" >
         <div class ="file-button"><input id ="getfile" type="file" ><i class="fa fa-photo" title = "Add Image"></i></div>
         <div class ="save" title = "Save Image" ><a href = '#' id = "downloadFile" ><i class="fa fa-save"></i></a></div>
-        <!-- <div class ="undo"><i class="fa fa-undo"></i></div>
-        <div class ="redo"><i class="fa fa-repeat"></i></div> -->
       </div>
     </div>
   </div>
   <div class = "middle-wrapper">
     <div class = "middle-container center clearfix">
       <div class = "column-one" >
-        <!-- <div id ="crop-icon"><i class="fa fa-crop"></i></div>  -->
         <div id="mirror-icon"><i class="fa fa-exchange" title = "Mirror Image"></i></div> 
         <div id ="text-icon"><i class="fa fa-font" title = "Write Text"></i></div> 
         <div id="paint-icon"><i class="fa fa-paint-brush" title = "Paint"></i></div>
@@ -44,8 +42,20 @@
       <div class = "column-two">
         <div id = "textPopUp" class = "textPopUpClass">
           <form>
-            <label for="fname" class = input-title>Input Text:</label><br>
+            <label for="fname" class = input-title>Add new text:</label><br>
             <input type="text" autocomplete = "off" id="fname" name="fname" placeholder="Please write your text here"><br>
+            <label for="fname" class = size-title>Font Size:</label><br>
+            <input type="text" id ="text-font-size" value = "20">
+            <label for = "fname" class ="selectColor">Color:</label>
+            <input type = "color" id = "colorPicker" name = "colorpicker" class = "colorPicker" value = "#ff0000"><br>
+            <!-- <input type = "submit"> -->
+            <!-- <label for = "red" class = "red-color">Red</label><br>
+            <input type = "text" id = "red-value"  value = "225"class = "input-color">
+            <label for = "green" class = "green-color">Green</label><br>
+            <input type = "text" id = "green-value" class = "input-color" value = "225">
+            <label for = "blue" class = "blue-color">Blue</label><br>
+            <input type = "text" id = "blue-value" value = "225" class = "input-color">
+            <br>         -->
           </form>
           <button  id = "ok-button">OK</button>
            <span class="close">&times;</span>
@@ -58,6 +68,7 @@
             <input type="text" id="popUpheight" >
           </form>
           <button  id = "ok-buttonResize">OK</button>
+          <span class="closeResize">&times;</span>
         </div>
       <canvas id = "canvas" class ="center" >
       </canvas>
@@ -70,68 +81,82 @@
         </div>
         <div class = "filters clearfix">
           <div class = filters-options>
-            <button class = 'filter-normal'>
-              <img src = "images/paradise.png">
+            <div class = 'filter-normal all-filters-btn'>
+              <img src = "images/eevee.jpg" alt ="dog-picture">
               <div class = "filters-name">
                 Normal</div>
-            </button>
+            </div>
           </div>
           <div class = filters-options>
-            <button class = 'filter-moon'>
-              <img src = "images/paradise.png">
+            <div class = 'filter-moon all-filters-btn'>
+              <img src = "images/eevee-moon.jpg" alt ="dog-picture">
               <div class = "filters-name">
                 Moon</div>
-            </button>
+            </div>
           </div>
           <div class = filters-options>
-            <button class = "filter-sepia">
-              <img src = "images/paradise.png">
+            <div class = "filter-sepia all-filters-btn">
+              <img src = "images/eevee-sepia.jpg" alt ="dog-picture">
               <div class = "filters-name">
                 Sepia</div>
-            </button>  
+            </div>  
           </div>
           <div class = filters-options>
-            <button class = "filter-inkwell">
-              <img src = "images/paradise.png">
+            <div class = "filter-inkwell all-filters-btn">
+              <img src = "images/eevee-inkwell.jpg" alt ="dog-picture">
               <div class = "filters-name">
                 InkWell</div>
-            </button>
+            </div>
           </div>
           <div class = filters-options>
-            <button class = "filter-fineArt">
-                  <img src = "images/paradise.png">
+            <div class = "filter-fineArt all-filters-btn">
+                  <img src = "images/eevee-fineart.jpg" alt ="dog-picture">
                   <div class = "filters-name">
-                  B/W</div> 
-              </button>
+                  Fine Art</div> 
+            </div>
           </div>
           <div class = filters-options>
-            <button class = "filter-nostalgic">
-              <img src = "images/paradise.png">
+            <div class = "filter-nostalgic all-filters-btn">
+              <img src = "images/eevee-nostalgic.jpg" alt ="dog-picture">
               <div class = "filters-name">
                 Nostalgic</div>
-            </button>
+            </div>
           </div>
           <div class = filters-options>
-            <button class ="filter-clarendon">
-              <img src = "images/paradise.png">
+            <div class ="filter-clarendon all-filters-btn">
+              <img src = "images/eevee-charledon.jpg" alt ="dog-picture">
               <div class = "filters-name">
                 Charledon</div>
-            </button>
+            </div>
           </div>
           <div class = filters-options>
-            <button class = "filter-classic">
-              <img src = "images/paradise.png">
+            <div class = "filter-classic all-filters-btn">
+              <img src = "images/eevee-classic.jpg" alt ="dog-picture"> 
               <div class = "filters-name">
                 Classic</div>
-            </button>
+            </div>
           </div>
          
           <div class = filters-options>
-            <button class = "filter-raw">
-              <img src = "images/paradise.png">
+            <div class = "filter-raw all-filters-btn">
+              <img src = "images/eevee-raw.jpg" alt ="dog-picture">
               <div class = "filters-name">
                 Raw</div>
-            </button>
+            </div>
+          </div>
+          <div class = filters-options>
+            <div class = "filter-Calm all-filters-btn">
+              <img src = "images/eevee-calm.jpg" alt ="dog-picture">
+              <div class = "filters-name">
+                Calm</div>
+            </div>
+          </div>
+          <div class = filters-options>
+            <div class = "filter-moody all-filters-btn">
+              <img src = "images/eevee-moody.jpg"  alt ="dog-picture">
+              <div class = "filters-name">
+                Moody</div>
+            </div>
           </div>
           
         </div>
@@ -139,41 +164,33 @@
           <div class = "tuning-options">
             <div class ="tune-name">Brightness</div>
             <div class ="tune-range">
-              <input type="range" min="1" max="100" value="50" class="brightnessSlider" id="myRange">
+              <input type="range" min="1" max="100" value="50" class="brightnessSlider rangeSlider">
             </div>
           </div>
           <div class = "tuning-options">
             <div class ="tune-name">Contrast</div>
             <div class ="tune-range">
-              <input type="range" min="1" max="100" value="50" class="contrastSlider" id="myRange">
+              <input type="range" min="1" max="100" value="50" class="contrastSlider rangeSlider">
             </div>
           </div>
           <div class = "tuning-options">
             <div class ="tune-name">Saturation</div>
             <div class ="tune-range">
-              <input type="range" min="1" max="100" value="50" class="saturationSlider" id="myRange">
+              <input type="range" min="1" max="100" value="50" class="saturationSlider rangeSlider">
             </div>
           </div>
           <div class = "tuning-options">
             <div class ="tune-name">Tint</div>
             <div class ="tune-range">
-              <input type="range" min="1" max="100" value="50" class="tintSlider" id="myRange">
+              <input type="range" min="1" max="100" value="50" class="tintSlider rangeSlider">
             </div>
           </div>
           <div class = "tuning-options">
             <div class ="tune-name">Temperature</div>
             <div class ="tune-range">
-              <input type="range" min="1" max="100" value="50" class="temperatureSlider" id="myRange">
+              <input type="range" min="1" max="100" value="50" class="temperatureSlider rangeSlider">
             </div>
           </div>
-          <div class = "tuning-options">
-            <div class ="tune-name">Vibrance</div>
-            <div class ="tune-range">
-              <input type="range" min="1" max="100" value="50" class="vibranceSlider" id="myRange">
-            </div>
-          </div>
-         
-          
         </div>
         <div class= "stickers-list" id = "stickers-button">
         </div>
@@ -184,17 +201,30 @@
             <div class = "add-layers-icon">
               <div class ="add-layer" title =" Add Layer"><i class="fa fa-plus-square" id="layer-button"></i></div>
             </div>
-            <div class = "delete-layers-icon">
-            <div class ="delete-layer" title =" Delete Layer" id="delete-layer-button"><i class="fa fa-trash" id="layer-button"></i></div>
+            <div class = "delete-layers-icon"> 
+              <div class ="delete-layer" title =" Delete Layer" ><i class="fa fa-trash" id="delete-layer-button"></i></div>
+            </div>
           </div>
           <div class = 'layer-list'></div>
-        </div>
+       
         </div>
       </div>
     </div>
   </div>
-  
-  <script src="js/layoutfix.js"></script>
+  <!-- importing filters -->
+  <script src="js/filters/index.js"></script>
+  <script src="js/filters/moon.js"></script>
+  <script src="js/filters/sepia.js"></script>
+  <script src="js/filters/inkwell.js"></script>
+  <script src="js/filters/fineart.js"></script>
+  <script src="js/filters/nostalgic.js"></script>
+  <script src="js/filters/charledon.js"></script>
+  <script src="js/filters/classic.js"></script>
+  <script src="js/filters/raw.js"></script>
+  <script src="js/filters/calm.js"></script>
+  <script src="js/filters/moody.js"></script>
+  <!-- importing other utility -->
+  <script src="js/eventhandlers.js"></script>
   <script src="js/utility.js"></script>
   <script src="js/layers.js"></script>
   <script src="js/index.js"></script>

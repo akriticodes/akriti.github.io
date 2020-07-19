@@ -6,14 +6,21 @@ class Layer{
     this.eyeIcon;
     this.downIcon;
     this.imageSize;
+    this.tint = 0;
+    this.imageData;
     this.name = name;
     this.doodles = [];
+    this.vibrance = 0;
+    this.contrast = 0;
     this.rotation = 0;
     this.positionX = 0;
     this.positionY = 0;
     this.index = index;
     this.visible = true;
+    this.brightness = 0;
+    this.saturation = 0;
     this.drawPoints = [];
+    this.temperature = 0;
     this.moveing = false;
     this.flipped = false;
     this.painting = false;
@@ -23,25 +30,19 @@ class Layer{
     this.width = canvasWidth;
     this.height = canvasHeight;
     this.InitializeLayerCanvas();
+    this.textColor = '#ff0000'
     this.addListenersInLayerDiv(this.index);
-    this.imageData;
-    this.brightness = 0;//secondish
-    this.contrast = 0;
-    this.saturation = 0;
-    this.tint = 0;
-    this.temperature = 0;
-    this.vibrance = 0;
     this.filters = {
-      1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, normal : false, raw : false
+      1997 : false , sepia : false, moon : false, nostalgic : false, inkwell : false, fineArt : false, clarendon : false, classic : false, normal : false, raw : false, calm : false, moody : false
     }
   }
 
   AddlayerstoList(){ 
     this.layerIndicatorDiv = document.createElement("div");
     this.layerIndicatorDiv.classList.add("layerDiv");
-    let eyeDiv = document.createElement("div");
+    var eyeDiv = document.createElement("div");
     eyeDiv.classList.add("eye-icon");
-    let aDiv = document.createElement("a");
+    var aDiv = document.createElement("a");
     aDiv.href = "#";
     this.eyeIcon = document.createElement("i");
     this.eyeIcon.classList.add("fa");
@@ -50,7 +51,17 @@ class Layer{
     eyeDiv.appendChild(aDiv);
     this.layerIndicatorDiv.appendChild(eyeDiv);
 
-    let upDiv = document.createElement('div');
+    if(this.index == 0){
+      var lockDiv = document.createElement('div');
+      lockDiv.classList.add("lock-icon");
+      this.lockIcon = document.createElement("i");
+      this.lockIcon.classList.add("fa");
+      this.lockIcon.classList.add("fa-lock");
+      lockDiv.appendChild(this.lockIcon);
+      this.layerIndicatorDiv.appendChild(lockDiv);
+    }
+
+    var upDiv = document.createElement('div');
     upDiv.classList.add("up-icon");
     this.upIcon = document.createElement("i");
     this.upIcon.classList.add("fa");
@@ -58,7 +69,7 @@ class Layer{
     upDiv.appendChild(this.upIcon);
     this.layerIndicatorDiv.appendChild(upDiv);
 
-    let downDiv = document.createElement('div');
+    var downDiv = document.createElement('div');
     downDiv.classList.add("down-icon");
     this.downIcon = document.createElement("i");
     this.downIcon.classList.add("fa");
@@ -73,9 +84,9 @@ class Layer{
   }
 
 
-  InitializeLayerCanvas(){//canvas= transparent rectangle
+  InitializeLayerCanvas(){
     ctx.beginPath();
-    ctx.fillStyle = "rgba(0,0,0,0.1)";
+    ctx.fillStyle = "rgba(0,0,0,0)";
     ctx.rect(0, 0, this.width, this.height);
     ctx.fill();
   } 
@@ -83,14 +94,6 @@ class Layer{
   AddImageToLayers(img, imgSize){
     this.img = img;
     this.imageSize = imgSize;
-  }
-
-  rotateImage(){
-    ctx.save(); 
-    this.rotation = Math.PI/2;
-    ctx.translate(this.width/2, this.height/2);
-    ctx.rotate(this.rotation);
-    ctx.restore();
   }
 
   flipImage(){
@@ -116,7 +119,6 @@ class Layer{
       return;
     }
     this.doodles[this.doodles.length-1].push([e.clientX-50, e.clientY-56]);
-   
   }
 
   move(e){
@@ -132,118 +134,81 @@ class Layer{
       this.positionY = e.clientY - 100;
     }
   }
-  addText(text){
+
+  addText(text, textSize, textColor){
     this.textDiv.innerHTML = text.slice(0, 15);
     this.text = text;
-    ctx.font = "20px Arial";
+    this.textColor = textColor;
+    ctx.font = textSize+"px 'Patrick Hand', cursive";
   }
 
-//three
   changeTuning(){
-    let myImageData = ctx.createImageData(this.imageData);
+    var myImageData = ctx.createImageData(this.imageData);
     for (var i=0; i < myImageData.data.length; i++){
       myImageData.data[i] = this.imageData.data[i];
     }
     if(this.brightness !==0){
-      myImageData = this.changeBrightness(myImageData, this.brightness)
+      myImageData = changeBrightness(myImageData, this.brightness)
     }
     if(this.contrast !==0){
-      myImageData = this.changeContrast(myImageData, this.contrast)
+      myImageData = changeContrast(myImageData, this.contrast)
     }
     if(this.saturation !==0){
-     myImageData = this.changeSaturation(myImageData, this.saturation)
+     myImageData = changeSaturation(myImageData, this.saturation)
     }
 
     if(this.tint !==0){
-      myImageData = this.changeTint(myImageData, this.tint)
+      myImageData = changeTint(myImageData, this.tint)
     }
 
     if (this.temperature !==0){
-      myImageData = this.changeTemperature(myImageData, this.temperature)
+      myImageData = changeTemperature(myImageData, this.temperature)
     }
 
     if(this.filters['moon']){
-        myImageData = this.changeSaturation(this.changeBrightness(myImageData, 10),0.5);
+      myImageData = new Moon(myImageData);
     }
 
     if(this.filters['nostalgic']){
-      myImageData = this.changeTemperature(this.changeTint(this.changeContrast(this.changeBrightness(myImageData, 10),40),10),-30);
+      myImageData = new Nostalgic(myImageData);
     }
 
     if(this.filters['fineArt']){
-      for (var i=0; i < myImageData.data.length; i+=4) {
-        var avg = ( myImageData.data[i] + myImageData.data[i +1] +  myImageData.data[i +2]) / 3;
-        myImageData.data[i]     = avg; // red
-        myImageData.data[i + 1] = avg; // green
-        myImageData.data[i + 2] = avg; // blue
-      }
+      myImageData = new FineArt(myImageData);
     }
 
     if(this.filters['raw']){
-      myImageData = this.changeSaturation(this.changeContrast(this.changeBrightness(myImageData,5),1),3);
+      myImageData = new Raw(myImageData);
     }
     
 
     if(this.filters['sepia']){
-      var s = 2;
-      for (var i=0; i < myImageData.data.length; i+=4) {
-        var r = myImageData.data[i];
-        var g = myImageData.data[i+1];
-        var b = myImageData.data[i+2];
-        myImageData.data[i] = ((r * (1 - (0.607 * s))) + (g * (0.769 * s)) + (b * (0.189 * s)));
-        myImageData.data[i+1] = ((r * (0.349 * s)) + (g * (1 - (0.314 * s))) + (b * (0.168 * s)));
-        myImageData.data[i+2] = ((r * (0.272 * s)) + (g * (0.534 * s)) + (b * (1- (0.869 * s))));
-        if(myImageData.data[i] > 255) myImageData.data[i] = 255;
-        if(myImageData.data[i+1] > 255) myImageData.data[i+1] = 255;
-        if(myImageData.data[i+2] > 255) myImageData.data[i+2] = 255;
-        if(myImageData.data[i] < 0)  myImageData.data[i] = 0;
-        if(myImageData.data[i+1] < 0)  myImageData.data[i+1] = 0;
-        if(myImageData.data[i+2] < 0)  myImageData.data[i+2] = 0; 
-      }
+      myImageData = new Sepia(myImageData);
     }
     
     if(this.filters['clarendon']){
-      myImageData = this.changeSaturation(this.changeBrightness(this.changeTint(this.changeTemperature(myImageData,14),4),4),14);
+      myImageData = new Charledon(myImageData);
     }
 
     if(this.filters['inkwell']){
-      myImageData = this.changeSaturation(this.changeBrightness(this.changeTint(this.changeTemperature(myImageData,3),3),1),2);
+      myImageData = new Inkwell(myImageData);
+    }
+
+    if(this.filters['calm']){
+      myImageData = new Calm(myImageData);
+    }
+
+    if(this.filters['moody']){
+      myImageData = new Moody(myImageData);
     }
 
     if(this.filters['classic']){
-      for(var i = 0; i < myImageData.data.length; i+=4) {
-        var avg = (myImageData.data[i] + myImageData.data[i +1] + myImageData.data[i +2]) / 3;
-        if(myImageData.data[i] < (myImageData.data[i+1] * 2) || myImageData.data[i] < (myImageData.data[i+2] * 4)) {
-          myImageData.data[i]     = avg; // red
-          myImageData.data[i + 1] = avg; // green
-          myImageData.data[i + 2] = avg; // blue  
-        } 
-      }
+      myImageData = new Classic(myImageData);
     }
-
-
-
-    
-
-    if (this.vibrance){
-      for(var i=0; i< myImageData.data.length; i+=4) {
-        var r = myImageData.data.length[i];
-        var g = myImageData.data.length[i+1];
-        var b = myImageData.data.length[i+2];
-        var max = Math.max(r, g, b);
-        var avg = (r + g + b) / 3;
-        var amt = ((Math.abs(max - avg) * 2 / 255) * this.vibrance) / 100;
-        if (r < max) myImageData.data.length[i] = r + (myImageData.data.length- data[i]) * amt;
-        if (g < max) myImageData.data.length[i+1] = g + (myImageData.data.length - data[i+1]) * amt;
-        if (b < max) myImageData.data.length[i+2] = b + (myImageData.data.length- data[i+2]) * amt;
-      }
-    }
-
    
     ctx.putImageData(myImageData, 0, 0);
   }
 
-  //two
   setBrightness(e){
     this.brightness = (e.target.value - 50); 
     updateScreen();
@@ -268,80 +233,6 @@ class Layer{
     updateScreen();
   }
 
-  setVibrance(e){
-    this.vibrance = (e.target.value -50) * 4 ; 
-    updateScreen();
-  }
-
-  changeBrightness(myImageData, s){
-    for (var i=0; i < myImageData.data.length; i++) {
-      myImageData.data[i] =myImageData.data[i]+s < 255 ? myImageData.data[i]+s : 255;
-      myImageData.data[i+1] = myImageData.data[i+1]+s < 255 ?myImageData.data[i+1]+s : 255;
-      myImageData.data[i+2] = myImageData.data[i+2]+10 < 255 ? myImageData.data[i+2]+s : 255;
-    }
-    return myImageData;
-  }
-
-  changeContrast(myImageData, contrast){
-    let factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
-      for (let i=0; i < myImageData.data.length; i+=4) {//r,g,b,a
-        myImageData.data[i] =  factor * (myImageData.data[i] - 128) + 128;
-        myImageData.data[i+1] = factor * (myImageData.data[i+1] - 128) + 128;
-        myImageData.data[i+2] =  factor * (myImageData.data[i+2] - 128) + 128;
-      }
-      return myImageData;
-  }
-
-  changeTint(myImageData, tint){
-    for(var i=0; i< myImageData.data.length; i+=4) {
-      myImageData.data[i+1] = myImageData.data[i+1] +  tint //G
-      if(myImageData.data[i+1] > 255) myImageData.data[i+1] = 255;
-      if(myImageData.data[i+1] < 0) myImageData.data[i+1] = 0;
-    }
-    return myImageData;
-  }
-
-
-  changeSaturation(myImageData,saturation){
-    var RW = 0.299;
-    var RG = 0.587;
-    var RB = 0.114;
-    var sBar = parseFloat(1 - saturation);         
-    var a =  sBar * RW + saturation;
-    var b =  sBar * RW;
-    var c =  sBar * RW;
-    var d =  sBar * RG;
-    var e = sBar * RG + saturation;
-    var f = sBar * RG;
-    var g = sBar * RB;
-    var h = sBar * RB;
-    var itemp = sBar * RB + saturation;
-    for(var i=0; i< myImageData.data.length; i+=4) {
-      var tempRed = myImageData.data[i];
-      var tempGreen = myImageData.data[i+1];
-      var tempBlue = myImageData.data[i+2];
-      myImageData.data[i] = a * tempRed + d * tempGreen + g * tempBlue//R
-      myImageData.data[i+1] = b * tempRed + e * tempGreen + h * tempBlue//G
-      myImageData.data[i+2] = c * tempRed + f * tempGreen + itemp * tempBlue//B
-    }
-    return myImageData;
-  }
-
-  changeTemperature(myImageData,temperature){
-    for(var i=0; i< myImageData.data.length; i+=4) {
-      myImageData.data[i] =(myImageData.data[i] + temperature)//R
-      //_data[i+1] = //G
-      myImageData.data[i+2] =(myImageData.data[i+2] - temperature)//B
-
-      if(myImageData.data[i] > 255) myImageData.data[i] = 255;
-      if(myImageData.data[i+2] > 255) myImageData.data[i+2] = 255;
-      if(myImageData.data[i] < 0)myImageData.data[i] = 0;
-      if(myImageData.data[i+2] < 0) myImageData.data[i+2] = 0;
-    }
-    return myImageData;
-  }
-
-
   changeVisibility(){
     if(this.visible){
       this.visible = false;
@@ -362,20 +253,18 @@ class Layer{
       updateScreen();
     });
     this.upIcon.addEventListener('click', function () {
-      if (that.index !== 0) {
+      if (that.index > 1) {
         swapLayer([that.index, that.index - 1]);
       }
       updateScreen();
     });
     this.downIcon.addEventListener('click', function () {
-      if (that.index !== layersArray.length - 1) {
+      if (that.index !== layersArray.length - 1 && that.index > 0) {
         swapLayer([that.index, that.index + 1]);
       }
       updateScreen();
     });
-
   }
-
 
   draw(){
     if(this.visible){
@@ -385,8 +274,10 @@ class Layer{
         ctx.fillStyle = '#ffffff'
         if(this.img)
           ctx.drawImage(this.img, -this.positionX - this.imageSize[0], this.positionY , this.imageSize[0], this.imageSize[1]);
-        if(this.text)
+        if(this.text){
+          ctx.fillStyle = this.textColor;
           ctx.fillText(this.text, -this.positionX + 10 - ctx.measureText(this.text).width, this.positionY  + 50);
+          ctx.fillStyle = '#ffffff'}
         
         ctx.restore();
         if(this.doodles){
@@ -410,8 +301,10 @@ class Layer{
         ctx.fillStyle = '#ffffff'
         if(this.img)
           ctx.drawImage(this.img, this.positionX , this.positionY, this.imageSize[0], this.imageSize[1]);
-        if(this.text)
+        if(this.text){
+          ctx.fillStyle = this.textColor
           ctx.fillText(this.text, this.positionX + 10 , this.positionY + 50);
+           ctx.fillStyle = '#ffffff';}
         if(this.doodles){
           this.doodles.forEach(function(drawPoints){
             ctx.beginPath();
@@ -428,12 +321,10 @@ class Layer{
         }
         if(this.img)
           this.imageData = ctx.getImageData(0,0,this.imageSize[0],this.imageSize[1]);
-      }//four
-      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0 || this.filters['moon'] || this.filters['sepia'] || this.filters['nostalgic'] || this.filters['inkwell'] || this.filters['fineArt'] || this.filters['clarendon'] || this.filters['classic'] || this.filters['normal']|| this.filters['raw']) 
+      }
+      if(this.brightness !== 0 || this.contrast!== 0 || this.saturation !==0 || this.tint !== 0 || this.temperature !== 0 || this.vibrance!== 0 || this.filters['moon'] || this.filters['sepia'] || this.filters['nostalgic'] || this.filters['inkwell'] || this.filters['fineArt'] || this.filters['clarendon'] || this.filters['classic'] || this.filters['normal']|| this.filters['raw'] || this.filters['calm'] || this.filters['moody']) 
         this.changeTuning()
     }
-  
-  // ctx.restore();
   }
 }
 
