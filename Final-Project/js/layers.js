@@ -139,6 +139,7 @@ class Layer{
     this.textDiv.innerHTML = text.slice(0, 15);
     this.text = text;
     this.textColor = textColor;
+    this.textSize = textSize;
     ctx.font = textSize+"px 'Patrick Hand', cursive";
   }
 
@@ -274,7 +275,8 @@ class Layer{
         ctx.fillStyle = '#ffffff'
         if(this.img)
           ctx.drawImage(this.img, -this.positionX - this.imageSize[0], this.positionY , this.imageSize[0], this.imageSize[1]);
-        if(this.text){
+        if(this.text){ 
+          ctx.font = this.textSize+"px 'Patrick Hand', cursive";
           ctx.fillStyle = this.textColor;
           ctx.fillText(this.text, -this.positionX + 10 - ctx.measureText(this.text).width, this.positionY  + 50);
           ctx.fillStyle = '#ffffff'}
@@ -286,11 +288,11 @@ class Layer{
             ctx.lineWidth = 10;
             ctx.lineCap = "round";
             ctx.strokeStyle = "white";
-            drawPoints.forEach(function(point){
-              ctx.lineTo(canvasWidth - point[0], point[1]);
+            drawPoints.forEach(function(point){  
+              ctx.lineTo(layersArray[0].imageSize[0] - point[0], point[1]);
               ctx.stroke();
               ctx.beginPath();
-              ctx.moveTo(canvasWidth - point[0], point[1]);
+              ctx.moveTo(layersArray[0].imageSize[0] - point[0], point[1]);
             })
           })
         }
@@ -302,13 +304,14 @@ class Layer{
         if(this.img)
           ctx.drawImage(this.img, this.positionX , this.positionY, this.imageSize[0], this.imageSize[1]);
         if(this.text){
+          ctx.font = this.textSize+"px 'Patrick Hand', cursive";
           ctx.fillStyle = this.textColor
           ctx.fillText(this.text, this.positionX + 10 , this.positionY + 50);
            ctx.fillStyle = '#ffffff';}
         if(this.doodles){
           this.doodles.forEach(function(drawPoints){
             ctx.beginPath();
-            ctx.lineWidth = 10;
+            ctx.lineWidth = 7;
             ctx.lineCap = "round";
             ctx.strokeStyle = "white";
             drawPoints.forEach(function(point){
