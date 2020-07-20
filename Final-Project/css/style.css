@@ -34,9 +34,8 @@
 .header-container .icons-top{
   margin-left : calc(50% - 250px); 
   float:left;
-
-
 }
+
 .file-button{
   float:left;
   cursor : pointer;
@@ -46,7 +45,6 @@
   float: left;
   cursor: pointer;
 }
-
 
 .header-container .icons-top div{
   text-align: center;
@@ -59,11 +57,9 @@
   color: #D2C1CE !important;
 }
 
-
 .header-container .icons-top div:hover{
   background-color: #000;
 }
-
 
 /* middle-section */
 
@@ -129,7 +125,6 @@
   cursor: pointer;
 }
 
-
 .rangeSlider::-moz-range-thumb {
   width: 14px;
   height: 14px;
@@ -137,8 +132,6 @@
   background : #b375a2;
   cursor: pointer;
 }
-
-
 
 /* column-two */
 
@@ -208,11 +201,6 @@
   float:left;
 }
 
-
-/* .filters-options{
- 
-} */
-
 .all-filters-btn img{
   height: 70px;
   width: 70px;
@@ -227,7 +215,6 @@
   margin-top: 5px;
   background-color: #D2C1CE;
 }
-
 
 .filters-name{
   display: inline-block;
@@ -321,7 +308,7 @@
 
 .add-layers-icon{
   position: absolute;
-  top : 0px;
+  top: 0px;
   right: 45px;
   z-index: 20;
   padding:5px;
@@ -333,7 +320,7 @@
 }
 .delete-layers-icon{
   position: absolute;
-  top : 0px;
+  top: 0px;
   right: 15px;
   z-index: 20;
   padding: 5px;
@@ -506,12 +493,13 @@ label{
   top: 85px;
   left: 160px;
   text-align: center;
+  outline: none;
 }
 
 .selectColor{
   position : absolute;
   top:110px;
-  left :75px;
+  left: 75px;
 }
 
 .colorPicker{
@@ -522,42 +510,3 @@ label{
   width: 32px;
 }
 
-/* .red-color{
-  position : absolute;
-  top:120px;
-  left : 10px;
-}
-.green-color{
-  position : absolute;
-  top:120px;
-  left : 100px;
-}
-.blue-color{
-  position : absolute;
-  top:120px;
-  left : 200px;
-}
-
-.input-color{
-  height : 20px;
-  width : 30px;
-  display : inline-block;
-}
-
-#red-value{
-  position: absolute;
-  top : 125px;
-  left: 40px;
-}
-
-#green-value{
-  position: absolute;
-  top : 125px;
-  left: 150px;
-}
-
-#blue-value{
-  position: absolute;
-  top : 125px;
-  left: 240px;
-} */
