@@ -1,5 +1,5 @@
 class Layer{
-  constructor(name, index ){
+  constructor(name, index){
     this.img;
     this.text;
     this.upIcon;
