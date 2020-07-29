@@ -9,7 +9,6 @@
 }
 .price-tag-container{
   display:none;
-
 }
 
 .featured-wood-container{
@@ -21,8 +20,6 @@
 .wood-sand{
   display:none;
 }
-
-
 .featured-box{
   width: 95%;
   float:right;
@@ -57,7 +54,6 @@
   color:white;
   padding-top: 10px;
  }
-
  .topic{
    color:black;
    width: 250px;
@@ -74,9 +70,7 @@
   position: absolute;
   display:block;
   right:20px;
-
 }
-
 .second-price-down{
   position:absolute;
   color:white;
@@ -84,8 +78,6 @@
   top:25px;
   left:10px;
   position: absolute;
-  
-
 }
 .second-price-up{
   font-size:8px;
@@ -93,7 +85,6 @@
   top: 20px;
   right:15px;
 }
-
 
 @media only screen and (min-width: 768px) {
 
@@ -144,7 +135,6 @@
     background-color:white;
     float:right;
     display:block;
-
   }
   .price-tag-circle{
     width: 200px;
@@ -165,7 +155,6 @@
     position: absolute;
     left:40px;
     bottom:80px;
-
   }
   .price-up{
     font-size:16px;

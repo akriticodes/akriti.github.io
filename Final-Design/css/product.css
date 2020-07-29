@@ -104,8 +104,7 @@
 .shopping-container-right{
   width:260px;
   height:260px;
-  background-color:#e7a8c6;
-  
+  background-color:#e7a8c6;  
 }
 
 .shopping-container-down .name-price{
@@ -128,11 +127,9 @@
 .add-to-cart .cart-icon :hover{
   background: url("images/green-cart");
 }
-
 .product-class{
   width:260px;
 }
-
 @media only screen and (min-width: 1300px) {
   .product-list-wrapper .product-list{
     max-width:1173px;
